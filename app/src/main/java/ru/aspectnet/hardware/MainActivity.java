@@ -6,14 +6,22 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 
-import androidx.core.view.WindowCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import ru.aspectnet.hardware.api.dto.HardwareDto;
+import ru.aspectnet.hardware.api.services.ReturnValueApi;
+import ru.aspectnet.hardware.api.dto.ReturnValueDto;
 import ru.aspectnet.hardware.databinding.ActivityMainBinding;
 
 import android.view.Menu;
@@ -45,6 +53,40 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://eam-demo.aspectnet.ru/platform/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ReturnValueApi returnValueApi = retrofit.create(ReturnValueApi.class);
+
+        Call<ReturnValueDto> returnValue = returnValueApi.returnValue();
+
+        returnValue.enqueue(new Callback<ReturnValueDto>() {
+            @Override
+            public void onResponse(Call<ReturnValueDto> call, Response<ReturnValueDto> response) {
+                if (response.isSuccessful()) {
+                    ReturnValueDto rvd = response.body();
+                    for(HardwareDto h : rvd.getReturnValue()) {
+                        Log.d("test", "response " + h.getName());
+                    }
+                } else {
+                    Log.d("test","response code " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReturnValueDto> call, Throwable t) {
+                Log.d("test","failure " + t);
+            }
+        });
+
+        Retrofit retrofit2 = new Retrofit.Builder()
+                .baseUrl("https://pddmaster.ru/ekzamen-api/version/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
     }
 
     @Override
