@@ -104,8 +104,6 @@ public class Task1Activity extends AppCompatActivity {
         Метод для вывода полученных данных на экран
      */
     private void displayHardwareTable(HardwarePackage hp) {
-        Collections.sort(hp.getHardwareList(), Comparator.comparing(Hardware::getCode));
-
         for (Hardware h : hp.getHardwareList()) {
 
             LayoutInflater inflater = LayoutInflater.from(this);
@@ -118,6 +116,22 @@ public class Task1Activity extends AppCompatActivity {
 
             TextView tv3 = (TextView) ll.findViewById(R.id.col3);
             tv3.setText(h.getStatus());
+
+            int statusColor;
+            switch (h.getStatusCode()) {
+                case "installed":{
+                    statusColor = R.color.status_green;
+                    break;
+                }
+                case "withdrawn": {
+                    statusColor = R.color.status_gray;
+                    break;
+                }
+                default: {
+                    statusColor = R.color.status_white;
+                }
+            }
+            tv3.setBackground(new ColorDrawable(this.getColor(statusColor)));
 
             TextView tv4 = (TextView) ll.findViewById(R.id.col4);
             tv4.setText(h.getCriticality());

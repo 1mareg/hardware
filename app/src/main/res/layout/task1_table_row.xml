@@ -24,9 +24,11 @@
     <TextView
         android:id="@+id/col3"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="7"
         android:layout_marginRight="5dp"
+        android:paddingHorizontal="2dp"
+        android:gravity="center"
         android:text="В эксплуатации" />
 
     <TextView
@@ -35,6 +37,7 @@
         android:layout_height="match_parent"
         android:layout_weight="7"
         android:paddingHorizontal="2dp"
+        android:gravity="center"
         android:text="Очень критично" />
 </LinearLayout>
 
