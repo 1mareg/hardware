@@ -12,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -47,6 +50,7 @@ public class Task1Activity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityTask1Binding binding;
+    private HardwarePackage hp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,30 @@ public class Task1Activity extends AppCompatActivity {
 
         binding = ActivityTask1Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        // Слушатель изменений в полях ввода для фильтрации данных
+        TextWatcher tw = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Log.d("test", "Текст изменен");
+                hp.setCodeFilter(binding.editTextF1.getText().toString());
+                hp.setNameFilter(binding.editTextF2.getText().toString());
+                hp.setStatusFilter(binding.editTextF3.getText().toString());
+                hp.setCriticalityFilter(binding.editTextF4.getText().toString());
+                displayHardwareTable();
+            }
+        };
+
+        binding.editTextF1.addTextChangedListener(tw);
+        binding.editTextF2.addTextChangedListener(tw);
+        binding.editTextF3.addTextChangedListener(tw);
+        binding.editTextF4.addTextChangedListener(tw);
 
         loadData();
 
@@ -80,20 +108,21 @@ public class Task1Activity extends AppCompatActivity {
             public void onResponse(Call<ReturnValueDto> call, Response<ReturnValueDto> response) {
                 if (response.isSuccessful()) {
                     ReturnValueDto rvd = response.body();
-                    HardwarePackage hp = new HardwarePackage();
+                    hp = new HardwarePackage();
                     for (HardwareDto hd : rvd.getReturnValue()) {
                         hp.setHardware(new HardwareConverter().convert(hd));
-                        Log.d("test", "response " + hd.getName());
                     }
-                    displayHardwareTable(hp);
+                    displayHardwareTable();
                 } else {
                     Log.d("test", "response code " + response.code());
+                    //TODO добавить обработку неверного кода
                 }
             }
 
             @Override
             public void onFailure(Call<ReturnValueDto> call, Throwable t) {
                 Log.d("test", "failure " + t);
+                //TODO добавить обработку ошибки загрузки
             }
         });
 
@@ -103,7 +132,8 @@ public class Task1Activity extends AppCompatActivity {
     /*
         Метод для вывода полученных данных на экран
      */
-    private void displayHardwareTable(HardwarePackage hp) {
+    private void displayHardwareTable() {
+        binding.tableHardware.removeAllViews();
         for (Hardware h : hp.getHardwareList()) {
 
             LayoutInflater inflater = LayoutInflater.from(this);
