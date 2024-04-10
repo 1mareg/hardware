@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +29,9 @@ import ru.aspectnet.hardware.model.convert.HardwareConverter;
 import ru.aspectnet.hardware.model.data.Hardware;
 import ru.aspectnet.hardware.model.data.HardwarePackage;
 
+/*
+    Активити для отображения таблицы с оборудованием
+ */
 public class Task1Activity extends AppCompatActivity {
 
     private ActivityTask1Binding binding;
@@ -108,7 +112,7 @@ public class Task1Activity extends AppCompatActivity {
                     filterTable();
                 } else {
                     Log.d("test", "response code " + response.code());
-                    //TODO добавить обработку неверного кода
+                    showErrorToast("Во время загрузки данных произошла ошибка! Повторите попытку!");
                 }
                 hideProgress();
             }
@@ -117,9 +121,16 @@ public class Task1Activity extends AppCompatActivity {
             public void onFailure(Call<ReturnValueDto> call, Throwable t) {
                 Log.d("test", "failure " + t);
                 hideProgress();
-                //TODO добавить обработку ошибки загрузки
+                showErrorToast("Во время загрузки данных произошла ошибка. Повторите попытку!");
             }
         });
+    }
+
+    /*
+        Метод для вывода тоста с информацией об ошибке
+     */
+    private void showErrorToast(String message){
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     /*
