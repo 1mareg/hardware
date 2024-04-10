@@ -9,12 +9,17 @@ import java.util.stream.Collectors;
     Класс для хранения информации обо всем оборудовании, загруженном в приложение
  */
 public class HardwarePackage {
-    ArrayList<Hardware> hardwareList = new ArrayList<>();
+    ArrayList<Hardware> hardwareList = new ArrayList<>();   // коллекция с элементами оборудования
     String codeFilter = "";         // фильтр для сортировки по полю "Код"
     String nameFilter = "";         // фильтр для сортировки по полю "Наименование"
     String statusFilter = "";       // фильтр для сортировки по полю "Статус"
     String criticalityFilter = "";  // фильтр для сортировки по полю "Критичность"
 
+    /*
+        Метод, возвращающий коллекцию оборудования
+            - отсортированную по полю "Код";
+            - отфильтрованную по всем полям, для которых установлены значения в фильтрах.
+     */
     public ArrayList<Hardware> getHardwareList() {
         Collections.sort(hardwareList, Comparator.comparing(Hardware::getCode));
 

@@ -1,35 +1,17 @@
 package ru.aspectnet.hardware.view;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
-
-import androidx.core.view.WindowCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import java.util.Collections;
-import java.util.Comparator;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,9 +30,8 @@ import ru.aspectnet.hardware.model.data.HardwarePackage;
 
 public class Task1Activity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
     private ActivityTask1Binding binding;
-    private HardwarePackage hp;
+    private HardwarePackage hp; // Объект с информацией о загруженном по REST оборудовании
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,25 +47,36 @@ public class Task1Activity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
+            /*
+                После изменения данных в поле ввода автоматически производим фильтрацию
+             */
             @Override
             public void afterTextChanged(Editable s) {
-                Log.d("test", "Текст изменен");
-                hp.setCodeFilter(binding.editTextF1.getText().toString());
-                hp.setNameFilter(binding.editTextF2.getText().toString());
-                hp.setStatusFilter(binding.editTextF3.getText().toString());
-                hp.setCriticalityFilter(binding.editTextF4.getText().toString());
-                displayHardwareTable();
+                filterTable();
             }
         };
 
+        // устанавливаем слушатели на все поля ввода
         binding.editTextF1.addTextChangedListener(tw);
         binding.editTextF2.addTextChangedListener(tw);
         binding.editTextF3.addTextChangedListener(tw);
         binding.editTextF4.addTextChangedListener(tw);
 
+        // загружаем данные по REST
         loadData();
+    }
 
+    /*
+        Метод для фильтрации данных в таблице
+     */
+    private void filterTable() {
+        if (hp != null) {
+            hp.setCodeFilter(binding.editTextF1.getText().toString());
+            hp.setNameFilter(binding.editTextF2.getText().toString());
+            hp.setStatusFilter(binding.editTextF3.getText().toString());
+            hp.setCriticalityFilter(binding.editTextF4.getText().toString());
+            displayHardwareTable();
+        }
     }
 
     /*
@@ -92,7 +84,7 @@ public class Task1Activity extends AppCompatActivity {
      */
     private void loadData() {
 
-        //TODO включить крутилку при загрузке
+        binding.progressBar.setVisibility(View.VISIBLE);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://eam-demo.aspectnet.ru/platform/api/")
@@ -113,20 +105,29 @@ public class Task1Activity extends AppCompatActivity {
                         hp.setHardware(new HardwareConverter().convert(hd));
                     }
                     displayHardwareTable();
+                    filterTable();
                 } else {
                     Log.d("test", "response code " + response.code());
                     //TODO добавить обработку неверного кода
                 }
+                hideProgress();
             }
 
             @Override
             public void onFailure(Call<ReturnValueDto> call, Throwable t) {
                 Log.d("test", "failure " + t);
+                hideProgress();
                 //TODO добавить обработку ошибки загрузки
             }
         });
+    }
 
-        //TODO отключить крутилку при загрузке
+    /*
+        Метод, скрывающий прогресс бар после завершения операции
+     */
+    private void hideProgress(){
+        binding.progressBar.setVisibility(View.INVISIBLE);
+        binding.progressBar.setLayoutParams(new LinearLayout.LayoutParams(0,0));
     }
 
     /*

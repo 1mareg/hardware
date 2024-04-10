@@ -1,10 +1,12 @@
 package ru.aspectnet.hardware.api.services;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.POST;
 import ru.aspectnet.hardware.api.dto.ReturnValueDto;
+
+/*
+    Интерфейс для полученяи данных через REST API
+ */
 
 public interface ReturnValueApi {
 

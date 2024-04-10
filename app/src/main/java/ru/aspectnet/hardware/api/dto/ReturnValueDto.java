@@ -2,10 +2,9 @@ package ru.aspectnet.hardware.api.dto;
 
 import java.util.ArrayList;
 
-import lombok.Getter;
-
 /*
     DTO - оборудование (весь возвращаемый JSON)
+    Класс для десериализации JSON, полученного через API
  */
 public class ReturnValueDto {
     private ArrayList<HardwareDto> returnValue;

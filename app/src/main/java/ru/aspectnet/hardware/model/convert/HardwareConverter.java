@@ -4,9 +4,13 @@ import ru.aspectnet.hardware.api.dto.HardwareDto;
 import ru.aspectnet.hardware.model.data.Hardware;
 
 /*
-    Класс для преобразования данных из HardwareDto в Hardware
+    Класс для преобразования данных из HardwareDto (сущность, полученная по REST) в Hardware (класс данных для использования в приложении)
  */
 public class HardwareConverter {
+
+    /*
+        Метод преобразования данных
+     */
     public Hardware convert(HardwareDto hd){
         Hardware h = new Hardware();
         h.setId(hd.getId());
