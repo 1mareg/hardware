@@ -29,6 +29,8 @@ import ru.aspectnet.hardware.databinding.ActivityTask2Binding;
 
 import ru.aspectnet.hardware.R;
 import ru.aspectnet.hardware.model.convert.HardwareConverter;
+import ru.aspectnet.hardware.model.convert.HardwareInfoConverter;
+import ru.aspectnet.hardware.model.data.HardwareInfo;
 import ru.aspectnet.hardware.model.data.HardwarePackage;
 
 public class Task2Activity extends AppCompatActivity {
@@ -72,6 +74,10 @@ public class Task2Activity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     ReturnValueHardwareInfoDto rvhid = response.body();
                     Log.d("test",rvhid.toString());
+                    HardwareInfo hi = new HardwareInfoConverter().convert(rvhid);
+
+                    Log.d("test", hi.getName());
+
                     /*hp = new HardwarePackage();
                     for (HardwareDto hd : rvd.getReturnValue()) {
                         hp.setHardware(new HardwareConverter().convert(hd));

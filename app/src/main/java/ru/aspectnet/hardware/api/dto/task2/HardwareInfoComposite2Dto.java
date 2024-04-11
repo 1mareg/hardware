@@ -10,4 +10,8 @@ public class HardwareInfoComposite2Dto {
     private String value;
     private String description;
     private String enumId;
+
+    public String getValue() {
+        return value;
+    }
 }

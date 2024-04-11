@@ -6,4 +6,8 @@ package ru.aspectnet.hardware.api.dto.task2;
  */
 public class ReturnValueHardwareInfoDto {
     private HardwareInfoDto returnValue;
+
+    public HardwareInfoDto getReturnValue() {
+        return returnValue;
+    }
 }

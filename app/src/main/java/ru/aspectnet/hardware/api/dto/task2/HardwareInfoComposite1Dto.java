@@ -11,4 +11,9 @@ public class HardwareInfoComposite1Dto {
     private String schemaId;
     private String name;
     private boolean _isReference_;
+
+    public String getName() {
+        return name;
+    }
+
 }
