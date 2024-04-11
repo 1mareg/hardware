@@ -1,5 +1,6 @@
 package ru.aspectnet.hardware.view;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
@@ -150,6 +151,13 @@ public class Task1Activity extends AppCompatActivity {
 
             LayoutInflater inflater = LayoutInflater.from(this);
             LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.task1_table_row, null);
+
+            ll.setOnClickListener((l)->{
+                HardwareApplication.getInstance().setHardware(h);
+                Intent intent = new Intent(this, Task2Activity.class);
+                this.startActivity(intent);
+            });
+
             TextView tv1 = (TextView) ll.findViewById(R.id.col1);
             tv1.setText(h.getCode());
 

@@ -30,6 +30,7 @@ import ru.aspectnet.hardware.databinding.ActivityTask2Binding;
 import ru.aspectnet.hardware.R;
 import ru.aspectnet.hardware.model.convert.HardwareConverter;
 import ru.aspectnet.hardware.model.convert.HardwareInfoConverter;
+import ru.aspectnet.hardware.model.data.Hardware;
 import ru.aspectnet.hardware.model.data.HardwareInfo;
 import ru.aspectnet.hardware.model.data.HardwarePackage;
 
@@ -39,12 +40,16 @@ public class Task2Activity extends AppCompatActivity {
 
     private HardwarePackage hp; // Объект с информацией о загруженном по REST оборудовании
 
+    private Hardware h; // Объект с информацией об оборудовании
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityTask2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        h = HardwareApplication.getInstance().getHardware();
 
         // загружаем данные по REST
         loadData();
@@ -66,7 +71,7 @@ public class Task2Activity extends AppCompatActivity {
 
         ReturnValueApi returnValueApi = retrofit.create(ReturnValueApi.class);
 
-        Call<ReturnValueHardwareInfoDto> returnValueHardwareInfoDto = returnValueApi.returnValueHardwareInfo(new RequestDto("65b7cb09-5796-4317-b1a0-2124ded23af0"));
+        Call<ReturnValueHardwareInfoDto> returnValueHardwareInfoDto = returnValueApi.returnValueHardwareInfo(new RequestDto(h.getId()));
 
         returnValueHardwareInfoDto.enqueue(new Callback<ReturnValueHardwareInfoDto>() {
             @Override
@@ -76,7 +81,11 @@ public class Task2Activity extends AppCompatActivity {
                     Log.d("test",rvhid.toString());
                     HardwareInfo hi = new HardwareInfoConverter().convert(rvhid);
 
+                    h.setHardwareInfo(hi);
+
                     Log.d("test", hi.getName());
+
+                    displayHardwareInfoTable();
 
                     /*hp = new HardwarePackage();
                     for (HardwareDto hd : rvd.getReturnValue()) {
@@ -98,6 +107,28 @@ public class Task2Activity extends AppCompatActivity {
                 //showErrorToast("Во время загрузки данных произошла ошибка. Повторите попытку!");
             }
         });
+    }
+
+    private void displayHardwareInfoTable(){
+        binding.editTextCode.setText(h.getCode());
+        binding.editTextName.setText(h.getHardwareInfo().getName());
+        binding.editTextDepartmentName.setText(h.getHardwareInfo().getDepartmentName());
+        binding.editTextStatusValue.setText(h.getHardwareInfo().getStatusValue());
+        binding.editTextHierarchyLevelTypeName.setText(h.getHardwareInfo().getHierarchyLevelTypeName());
+        binding.editTextCostCodeName.setText(h.getHardwareInfo().getCostCodeName());
+
+        binding.editTextInventoryNumber.setText(h.getHardwareInfo().getInventoryNumber());
+        binding.editTextModel.setText(h.getHardwareInfo().getModel());
+        binding.editTextCommissDate.setText(h.getHardwareInfo().getCommissDate());
+        binding.editTextInitialValue.setText(h.getHardwareInfo().getInitialValue());
+        binding.editTextSerialNumber.setText(h.getHardwareInfo().getSerialNumber());
+        binding.editTextInstallationDate.setText(h.getHardwareInfo().getInstallationDate());
+
+        binding.editTextEcology.setText(h.getHardwareInfo().getEcology() ? "true" : "false");
+        binding.editTextSafety.setText(h.getHardwareInfo().getSafety() ? "true" : "false");
+        binding.editTextDormantCauseDate.setText(h.getHardwareInfo().getDormantCauseName());
+        binding.editTextDormantStartDate.setText(h.getHardwareInfo().getDormantStartDate());
+        binding.editTextDormantEndDate.setText(h.getHardwareInfo().getDormantEndDate());
     }
 
 }
