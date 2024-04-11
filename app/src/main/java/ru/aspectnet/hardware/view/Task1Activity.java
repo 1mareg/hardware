@@ -19,8 +19,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import ru.aspectnet.hardware.api.dto.HardwareDto;
-import ru.aspectnet.hardware.api.dto.ReturnValueDto;
+import ru.aspectnet.hardware.api.dto.task1.HardwareDto;
+import ru.aspectnet.hardware.api.dto.task1.ReturnValueDto;
 import ru.aspectnet.hardware.api.services.ReturnValueApi;
 import ru.aspectnet.hardware.databinding.ActivityTask1Binding;
 

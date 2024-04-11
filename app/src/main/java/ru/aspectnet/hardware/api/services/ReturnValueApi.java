@@ -2,7 +2,7 @@ package ru.aspectnet.hardware.api.services;
 
 import retrofit2.Call;
 import retrofit2.http.POST;
-import ru.aspectnet.hardware.api.dto.ReturnValueDto;
+import ru.aspectnet.hardware.api.dto.task1.ReturnValueDto;
 
 /*
     Интерфейс для полученяи данных через REST API

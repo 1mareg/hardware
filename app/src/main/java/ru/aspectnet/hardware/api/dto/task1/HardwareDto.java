@@ -1,4 +1,4 @@
-package ru.aspectnet.hardware.api.dto;
+package ru.aspectnet.hardware.api.dto.task1;
 
 /*
     DTO - оборудование (1 элемент)
