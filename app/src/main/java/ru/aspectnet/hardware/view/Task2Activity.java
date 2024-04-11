@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.core.view.WindowCompat;
 import androidx.navigation.NavController;
@@ -57,11 +58,11 @@ public class Task2Activity extends AppCompatActivity {
     }
 
     /*
-    Метод для загрузки, преобразования и отображения данных об оборудовании
- */
+        Метод для загрузки, преобразования и отображения данных об оборудовании
+     */
     private void loadData() {
 
-        //binding.progressBar.setVisibility(View.VISIBLE);
+        binding.progressBar.setVisibility(View.VISIBLE);
 
         Call<ReturnValueHardwareInfoDto> returnValueHardwareInfoDto = HardwareApplication.getInstance().getReturnValueApi().returnValueHardwareInfo(new RequestDto(h.getId()));
 
@@ -70,32 +71,18 @@ public class Task2Activity extends AppCompatActivity {
             public void onResponse(Call<ReturnValueHardwareInfoDto> call, Response<ReturnValueHardwareInfoDto> response) {
                 if (response.isSuccessful()) {
                     ReturnValueHardwareInfoDto rvhid = response.body();
-                    Log.d("test",rvhid.toString());
                     HardwareInfo hi = new HardwareInfoConverter().convert(rvhid);
-
                     h.setHardwareInfo(hi);
-
-                    Log.d("test", hi.getName());
-
                     displayHardwareInfoTable();
-
-                    /*hp = new HardwarePackage();
-                    for (HardwareDto hd : rvd.getReturnValue()) {
-                        hp.setHardware(new HardwareConverter().convert(hd));
-                    }*/
-                    //displayHardwareTable();
-                    //filterTable();
                 } else {
-                    Log.d("test", "response code " + response.code());
                     //showErrorToast("Во время загрузки данных произошла ошибка! Повторите попытку!");
                 }
-                //hideProgress();
+                hideProgress();
             }
 
             @Override
             public void onFailure(Call<ReturnValueHardwareInfoDto> call, Throwable t) {
-                Log.d("test", "failure " + t);
-                //hideProgress();
+                hideProgress();
                 //showErrorToast("Во время загрузки данных произошла ошибка. Повторите попытку!");
             }
         });
@@ -121,6 +108,14 @@ public class Task2Activity extends AppCompatActivity {
         binding.editTextDormantCauseDate.setText(h.getHardwareInfo().getDormantCauseName());
         binding.editTextDormantStartDate.setText(h.getHardwareInfo().getDormantStartDate());
         binding.editTextDormantEndDate.setText(h.getHardwareInfo().getDormantEndDate());
+    }
+
+    /*
+        Метод, скрывающий прогресс бар после завершения операции
+     */
+    private void hideProgress(){
+        binding.progressBar.setVisibility(View.INVISIBLE);
+        binding.progressBar.setLayoutParams(new LinearLayout.LayoutParams(0,0));
     }
 
 }
