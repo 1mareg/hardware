@@ -33,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
             this.startActivity(intent);
         });
 
+        binding.buttonTask2.setOnClickListener((b) -> {
+            Intent intent = new Intent(this, Task2Activity.class);
+            this.startActivity(intent);
+        });
+
     }
 
 }
