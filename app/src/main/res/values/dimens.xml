@@ -9,4 +9,5 @@
     <dimen name="text_size_edit_text">16sp</dimen>
     <dimen name="layout_margin_right_text_view">10dp</dimen>
     <dimen name="layout_margin_bottom_block">2dp</dimen>
+    <dimen name="text_size_colored_background">12dp</dimen>
 </resources>

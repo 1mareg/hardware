@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.core.view.WindowCompat;
 import androidx.navigation.NavController;
@@ -62,20 +63,26 @@ public class Task2Activity extends AppCompatActivity {
      */
     private void loadData() {
 
-        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.formHardwareInfo.linearLayoutHardwareInfo.setVisibility(View.INVISIBLE);
+        binding.formHardwareInfo.progressBar.setVisibility(View.VISIBLE);
 
         Call<ReturnValueHardwareInfoDto> returnValueHardwareInfoDto = HardwareApplication.getInstance().getReturnValueApi().returnValueHardwareInfo(new RequestDto(h.getId()));
 
         returnValueHardwareInfoDto.enqueue(new Callback<ReturnValueHardwareInfoDto>() {
             @Override
             public void onResponse(Call<ReturnValueHardwareInfoDto> call, Response<ReturnValueHardwareInfoDto> response) {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 if (response.isSuccessful()) {
                     ReturnValueHardwareInfoDto rvhid = response.body();
                     HardwareInfo hi = new HardwareInfoConverter().convert(rvhid);
                     h.setHardwareInfo(hi);
                     displayHardwareInfoTable();
                 } else {
-                    //showErrorToast("Во время загрузки данных произошла ошибка! Повторите попытку!");
+                    showErrorToast("Во время загрузки данных произошла ошибка! Повторите попытку!");
                 }
                 hideProgress();
             }
@@ -83,39 +90,50 @@ public class Task2Activity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ReturnValueHardwareInfoDto> call, Throwable t) {
                 hideProgress();
-                //showErrorToast("Во время загрузки данных произошла ошибка. Повторите попытку!");
+                showErrorToast("Во время загрузки данных произошла ошибка. Повторите попытку!");
             }
         });
     }
 
+    /*
+        Метод для вывода информации на экран
+     */
     private void displayHardwareInfoTable(){
-        binding.editTextCode.setText(h.getCode());
-        binding.editTextName.setText(h.getHardwareInfo().getName());
-        binding.editTextDepartmentName.setText(h.getHardwareInfo().getDepartmentName());
-        binding.editTextStatusValue.setText(h.getHardwareInfo().getStatusValue());
-        binding.editTextHierarchyLevelTypeName.setText(h.getHardwareInfo().getHierarchyLevelTypeName());
-        binding.editTextCostCodeName.setText(h.getHardwareInfo().getCostCodeName());
+        binding.formHardwareInfo.editTextCode.setText(h.getCode());
+        binding.formHardwareInfo.editTextName.setText(h.getHardwareInfo().getName());
+        binding.formHardwareInfo.editTextDepartmentName.setText(h.getHardwareInfo().getDepartmentName());
+        binding.formHardwareInfo.editTextStatusValue.setText(h.getHardwareInfo().getStatusValue());
+        binding.formHardwareInfo.editTextHierarchyLevelTypeName.setText(h.getHardwareInfo().getHierarchyLevelTypeName());
+        binding.formHardwareInfo.editTextCostCodeName.setText(h.getHardwareInfo().getCostCodeName());
 
-        binding.editTextInventoryNumber.setText(h.getHardwareInfo().getInventoryNumber());
-        binding.editTextModel.setText(h.getHardwareInfo().getModel());
-        binding.editTextCommissDate.setText(h.getHardwareInfo().getCommissDate());
-        binding.editTextInitialValue.setText(h.getHardwareInfo().getInitialValue());
-        binding.editTextSerialNumber.setText(h.getHardwareInfo().getSerialNumber());
-        binding.editTextInstallationDate.setText(h.getHardwareInfo().getInstallationDate());
+        binding.formHardwareInfo.editTextInventoryNumber.setText(h.getHardwareInfo().getInventoryNumber());
+        binding.formHardwareInfo.editTextModel.setText(h.getHardwareInfo().getModel());
+        binding.formHardwareInfo.editTextCommissDate.setText(h.getHardwareInfo().getCommissDate());
+        binding.formHardwareInfo.editTextInitialValue.setText(h.getHardwareInfo().getInitialValue());
+        binding.formHardwareInfo.editTextSerialNumber.setText(h.getHardwareInfo().getSerialNumber());
+        binding.formHardwareInfo.editTextInstallationDate.setText(h.getHardwareInfo().getInstallationDate());
 
-        binding.editTextEcology.setText(h.getHardwareInfo().getEcology() ? "true" : "false");
-        binding.editTextSafety.setText(h.getHardwareInfo().getSafety() ? "true" : "false");
-        binding.editTextDormantCauseDate.setText(h.getHardwareInfo().getDormantCauseName());
-        binding.editTextDormantStartDate.setText(h.getHardwareInfo().getDormantStartDate());
-        binding.editTextDormantEndDate.setText(h.getHardwareInfo().getDormantEndDate());
+        binding.formHardwareInfo.editTextEcology.setText(h.getHardwareInfo().getEcology() ? "true" : "false");
+        binding.formHardwareInfo.editTextSafety.setText(h.getHardwareInfo().getSafety() ? "true" : "false");
+        binding.formHardwareInfo.editTextDormantCauseDate.setText(h.getHardwareInfo().getDormantCauseName());
+        binding.formHardwareInfo.editTextDormantStartDate.setText(h.getHardwareInfo().getDormantStartDate());
+        binding.formHardwareInfo.editTextDormantEndDate.setText(h.getHardwareInfo().getDormantEndDate());
     }
 
     /*
         Метод, скрывающий прогресс бар после завершения операции
      */
     private void hideProgress(){
-        binding.progressBar.setVisibility(View.INVISIBLE);
-        binding.progressBar.setLayoutParams(new LinearLayout.LayoutParams(0,0));
+        binding.formHardwareInfo.progressBar.setVisibility(View.INVISIBLE);
+        binding.formHardwareInfo.progressBar.setLayoutParams(new LinearLayout.LayoutParams(0,0));
+        binding.formHardwareInfo.linearLayoutHardwareInfo.setVisibility(View.VISIBLE);
+    }
+
+    /*
+        Метод для вывода тоста с информацией об ошибке
+     */
+    private void showErrorToast(String message){
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
 }

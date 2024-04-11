@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:visibility="invisible"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout_hardware_info">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/block_background_color"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/padding_horizontal_block"
+                    android:paddingVertical="@dimen/padding_vertical_block"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom_block">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/task2_h1"
+                        android:textColor="@color/block_h"
+                        android:textSize="@dimen/text_size_block_h" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Код"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_code"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="101014"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Наименование"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="Конвейер ленточный №4 59747 (отсев ≥12мм) EP 400, B-500, L=19,6 м"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Отдел"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_department_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="Служба главного механика"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Статус"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_status_value"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="В эксплуатации"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Тип актива в структуре"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_hierarchy_level_type_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="Объект ремонта"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Код затрат"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_cost_code_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="BL0000006"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/block_background_color"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/padding_horizontal_block"
+                    android:paddingVertical="@dimen/padding_vertical_block"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom_block">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/task2_h2"
+                        android:textColor="@color/block_h"
+                        android:textSize="@dimen/text_size_block_h" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Инвентарный номер"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_inventory_number"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="null"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Модель"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_model"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="null"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Дата ввода в эксплуатацию"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_commiss_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="2006-03-29"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Первичная стоимость"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_initial_value"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="null"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Серийный номер"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_serial_number"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="null"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Дата установки"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_installation_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="null"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/block_background_color"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/padding_horizontal_block"
+                    android:paddingVertical="@dimen/padding_vertical_block"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom_block">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/task2_h3"
+                        android:textColor="@color/block_h"
+                        android:textSize="@dimen/text_size_block_h" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Экология"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_ecology"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="false"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Безопасность"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_safety"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="false"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Причина остановки"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_dormant_cause_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="null"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Начало неактивности"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_dormant_start_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="null"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Окончание неактивности"
+                            android:textColor="@color/text_color_block_p"
+                            android:textSize="@dimen/text_size_block_p" />
+
+                        <EditText
+                            android:id="@+id/editText_dormant_end_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:background="@drawable/edit_text_style"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="@dimen/padding_edit_text"
+                            android:text="null"
+                            android:textColor="@color/text_color_edit_text"
+                            android:textSize="@dimen/text_size_edit_text" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

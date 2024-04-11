@@ -36,6 +36,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/task2button" />
+
+        <Button
+            android:id="@+id/button_task3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/task3button" />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
