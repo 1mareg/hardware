@@ -14,4 +14,8 @@ public class HardwareInfoComposite2Dto {
     public String getValue() {
         return value;
     }
+
+    public String getCode() {
+        return code;
+    }
 }

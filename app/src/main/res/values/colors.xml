@@ -9,4 +9,11 @@
     <color name="status_white">#FFFFFFFF</color>
     <color name="status_gray">#FFCCCCCC</color>
     <color name="status_green">#FF66FF66</color>
+
+    <color name="background_color">#FFF3F3F3</color>
+    <color name="block_background_color">#FFFFFFFF</color>
+    <color name="block_h">#FF59bff9</color>
+    <color name="edit_text_border_color">#FFEFEFEF</color>
+    <color name="text_color_block_p">#868686</color>
+    <color name="text_color_edit_text">#757575</color>
 </resources>

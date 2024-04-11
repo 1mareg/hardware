@@ -35,6 +35,7 @@ public class HardwareInfoConverter {
         }
         hi.setDormantStartDate(hid.getDormantStartDate());
         hi.setDormantEndDate(hid.getDormantEndDate());
+        hi.setStatusCode(hid.getStatus().getCode());
         return hi;
     }
 }
