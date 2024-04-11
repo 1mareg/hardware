@@ -3,6 +3,9 @@ package ru.aspectnet.hardware.view;
 import android.app.Application;
 import android.util.Log;
 
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import ru.aspectnet.hardware.api.services.ReturnValueApi;
 import ru.aspectnet.hardware.model.data.Hardware;
 
 /*
@@ -12,11 +15,17 @@ import ru.aspectnet.hardware.model.data.Hardware;
 public class HardwareApplication extends Application {
     private static HardwareApplication instance;
     Hardware hardware; // информация о выбранном оборудовании
+    ReturnValueApi returnValueApi; // объект для запросов по REST
 
     public HardwareApplication() {
         super.onCreate();
         instance = this;
-        Log.d("test","Приложение запущено");
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://eam-demo.aspectnet.ru/platform/api/dm/rest/noAuth/actions/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        returnValueApi = retrofit.create(ReturnValueApi.class);
     }
 
     public static HardwareApplication getInstance() {
@@ -29,5 +38,9 @@ public class HardwareApplication extends Application {
 
     public void setHardware(Hardware hardware) {
         this.hardware = hardware;
+    }
+
+    public ReturnValueApi getReturnValueApi() {
+        return returnValueApi;
     }
 }

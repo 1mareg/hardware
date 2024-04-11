@@ -13,9 +13,9 @@ import ru.aspectnet.hardware.api.dto.task2.ReturnValueHardwareInfoDto;
 
 public interface ReturnValueApi {
 
-    @POST("dm/rest/noAuth/actions/caede3a6-d7e5-4a50-b283-4b20b07eb3fb/run")
+    @POST("caede3a6-d7e5-4a50-b283-4b20b07eb3fb/run")
     Call<ReturnValueDto> returnValue();
 
-    @POST("dm/rest/noAuth/actions/22bedbbd-9b7b-43d3-8f2f-e53f90b1faf9/run")
+    @POST("22bedbbd-9b7b-43d3-8f2f-e53f90b1faf9/run")
     Call<ReturnValueHardwareInfoDto> returnValueHardwareInfo(@Body RequestDto data);
 }

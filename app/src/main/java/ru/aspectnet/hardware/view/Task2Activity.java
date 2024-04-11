@@ -63,15 +63,7 @@ public class Task2Activity extends AppCompatActivity {
 
         //binding.progressBar.setVisibility(View.VISIBLE);
 
-        //TODO Создавать единственный объект ретрофит на приложение
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://eam-demo.aspectnet.ru/platform/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ReturnValueApi returnValueApi = retrofit.create(ReturnValueApi.class);
-
-        Call<ReturnValueHardwareInfoDto> returnValueHardwareInfoDto = returnValueApi.returnValueHardwareInfo(new RequestDto(h.getId()));
+        Call<ReturnValueHardwareInfoDto> returnValueHardwareInfoDto = HardwareApplication.getInstance().getReturnValueApi().returnValueHardwareInfo(new RequestDto(h.getId()));
 
         returnValueHardwareInfoDto.enqueue(new Callback<ReturnValueHardwareInfoDto>() {
             @Override

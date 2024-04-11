@@ -91,14 +91,7 @@ public class Task1Activity extends AppCompatActivity {
 
         binding.progressBar.setVisibility(View.VISIBLE);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://eam-demo.aspectnet.ru/platform/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ReturnValueApi returnValueApi = retrofit.create(ReturnValueApi.class);
-
-        Call<ReturnValueDto> returnValue = returnValueApi.returnValue();
+        Call<ReturnValueDto> returnValue = HardwareApplication.getInstance().getReturnValueApi().returnValue();
 
         returnValue.enqueue(new Callback<ReturnValueDto>() {
             @Override
