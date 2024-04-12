@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,28 +12,28 @@
 
         <ProgressBar
             android:id="@+id/progressBar"
-            android:visibility="invisible"
             android:layout_width="0dp"
-            android:layout_height="0dp" />
+            android:layout_height="0dp"
+            android:visibility="invisible" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:id="@+id/linearLayout_hardware_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/linearLayout_hardware_info">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom_block"
                     android:background="@color/block_background_color"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/padding_horizontal_block"
-                    android:paddingVertical="@dimen/padding_vertical_block"
-                    android:layout_marginBottom="@dimen/layout_margin_bottom_block">
+                    android:paddingVertical="@dimen/padding_vertical_block">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -57,6 +58,7 @@
                             android:textSize="@dimen/text_size_block_p" />
 
                         <EditText
+
                             android:id="@+id/editText_code"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -114,18 +116,11 @@
                             android:textColor="@color/text_color_block_p"
                             android:textSize="@dimen/text_size_block_p" />
 
-                        <EditText
-                            android:id="@+id/editText_department_name"
+                        <Spinner
+                            android:id="@+id/spinner_department_name"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:background="@drawable/edit_text_style"
-                            android:ems="10"
-                            android:inputType="text"
-                            android:padding="@dimen/padding_edit_text"
-                            android:text="Служба главного механика"
-                            android:textColor="@color/text_color_edit_text"
-                            android:textSize="@dimen/text_size_edit_text" />
+                            android:layout_weight="4" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -143,18 +138,11 @@
                             android:textColor="@color/text_color_block_p"
                             android:textSize="@dimen/text_size_block_p" />
 
-                        <EditText
-                            android:id="@+id/editText_status_value"
+                        <Spinner
+                            android:id="@+id/spinner_status_value"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:background="@drawable/edit_text_style"
-                            android:ems="10"
-                            android:inputType="text"
-                            android:padding="@dimen/padding_edit_text"
-                            android:text="В эксплуатации"
-                            android:textColor="@color/text_color_edit_text"
-                            android:textSize="@dimen/text_size_edit_text" />
+                            android:layout_weight="4" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -219,11 +207,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom_block"
                     android:background="@color/block_background_color"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/padding_horizontal_block"
-                    android:paddingVertical="@dimen/padding_vertical_block"
-                    android:layout_marginBottom="@dimen/layout_margin_bottom_block">
+                    android:paddingVertical="@dimen/padding_vertical_block">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -312,7 +300,7 @@
                             android:layout_weight="4"
                             android:background="@drawable/edit_text_style"
                             android:ems="10"
-                            android:inputType="text"
+                            android:inputType="date"
                             android:padding="@dimen/padding_edit_text"
                             android:text="2006-03-29"
                             android:textColor="@color/text_color_edit_text"
@@ -410,11 +398,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom_block"
                     android:background="@color/block_background_color"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/padding_horizontal_block"
-                    android:paddingVertical="@dimen/padding_vertical_block"
-                    android:layout_marginBottom="@dimen/layout_margin_bottom_block">
+                    android:paddingVertical="@dimen/padding_vertical_block">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -432,53 +420,52 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="@dimen/layout_margin_right_text_view"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:gravity="right"
                             android:text="Экология"
                             android:textColor="@color/text_color_block_p"
                             android:textSize="@dimen/text_size_block_p" />
 
-                        <EditText
-                            android:id="@+id/editText_ecology"
+                        <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:background="@drawable/edit_text_style"
-                            android:ems="10"
-                            android:inputType="text"
-                            android:padding="@dimen/padding_edit_text"
-                            android:text="false"
-                            android:textColor="@color/text_color_edit_text"
-                            android:textSize="@dimen/text_size_edit_text" />
-                    </LinearLayout>
+                            android:layout_weight="3">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/margin_vertical_block_body">
+                            <CheckBox
+                                android:layout_marginLeft="-12dp"
+                                android:id="@+id/checkBox_ecology"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                app:buttonTint="@color/block_h"
+                                app:checkedState="checked" />
+                        </RelativeLayout>
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="@dimen/layout_margin_right_text_view"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:gravity="right"
                             android:text="Безопасность"
                             android:textColor="@color/text_color_block_p"
                             android:textSize="@dimen/text_size_block_p" />
 
-                        <EditText
-                            android:id="@+id/editText_safety"
+                        <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:background="@drawable/edit_text_style"
-                            android:ems="10"
-                            android:inputType="text"
-                            android:padding="@dimen/padding_edit_text"
-                            android:text="false"
-                            android:textColor="@color/text_color_edit_text"
-                            android:textSize="@dimen/text_size_edit_text" />
+                            android:layout_weight="3">
+
+                            <CheckBox
+                                android:layout_marginLeft="-12dp"
+                                android:id="@+id/checkBox_safety"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                app:buttonTint="@color/block_h"
+                                app:checkedState="unchecked" />
+                        </RelativeLayout>
+
                     </LinearLayout>
 
                     <LinearLayout

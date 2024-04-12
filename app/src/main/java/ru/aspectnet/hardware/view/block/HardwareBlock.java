@@ -65,7 +65,7 @@ public class HardwareBlock {
             @Override
             public void onResponse(Call<ReturnValueDto> call, Response<ReturnValueDto> response) {
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -107,9 +107,6 @@ public class HardwareBlock {
 
             ll.setOnClickListener((l) -> {
                 otrc.onClick(h,ctx);
-                /*HardwareApplication.getInstance().setHardware(h);
-                Intent intent = new Intent(ctx, Task2Activity.class);
-                ctx.startActivity(intent);*/
             });
 
             TextView tv1 = (TextView) ll.findViewById(R.id.col1);

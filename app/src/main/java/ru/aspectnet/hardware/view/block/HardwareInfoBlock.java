@@ -1,16 +1,24 @@
 package ru.aspectnet.hardware.view.block;
 
 import android.content.Context;
+import android.text.Layout;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import ru.aspectnet.hardware.HardwareApplication;
+import ru.aspectnet.hardware.R;
 import ru.aspectnet.hardware.api.dto.task2.RequestDto;
 import ru.aspectnet.hardware.api.dto.task2.ReturnValueHardwareInfoDto;
 import ru.aspectnet.hardware.databinding.FormHardwareInfoBinding;
@@ -28,7 +36,7 @@ public class HardwareInfoBlock {
 
     public HardwareInfoBlock(FormHardwareInfoBinding fhib,
                              Hardware h,
-                             Context ctx){
+                             Context ctx) {
         this.fhib = fhib;
         this.h = h;
         this.ctx = ctx;
@@ -47,7 +55,7 @@ public class HardwareInfoBlock {
             @Override
             public void onResponse(Call<ReturnValueHardwareInfoDto> call, Response<ReturnValueHardwareInfoDto> response) {
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -73,11 +81,9 @@ public class HardwareInfoBlock {
     /*
         Метод для вывода информации на экран
      */
-    private void displayHardwareInfoTable(){
+    private void displayHardwareInfoTable() {
         fhib.editTextCode.setText(h.getCode());
         fhib.editTextName.setText(h.getHardwareInfo().getName());
-        fhib.editTextDepartmentName.setText(h.getHardwareInfo().getDepartmentName());
-        fhib.editTextStatusValue.setText(h.getHardwareInfo().getStatusValue());
         fhib.editTextHierarchyLevelTypeName.setText(h.getHardwareInfo().getHierarchyLevelTypeName());
         fhib.editTextCostCodeName.setText(h.getHardwareInfo().getCostCodeName());
 
@@ -88,20 +94,54 @@ public class HardwareInfoBlock {
         fhib.editTextSerialNumber.setText(h.getHardwareInfo().getSerialNumber());
         fhib.editTextInstallationDate.setText(h.getHardwareInfo().getInstallationDate());
 
-        fhib.editTextEcology.setText(h.getHardwareInfo().getEcology() ? "true" : "false");
-        fhib.editTextSafety.setText(h.getHardwareInfo().getSafety() ? "true" : "false");
+        fhib.checkBoxEcology.setChecked(h.getHardwareInfo().getEcology());
+        fhib.checkBoxSafety.setChecked(h.getHardwareInfo().getSafety());
         fhib.editTextDormantCauseDate.setText(h.getHardwareInfo().getDormantCauseName());
         fhib.editTextDormantStartDate.setText(h.getHardwareInfo().getDormantStartDate());
         fhib.editTextDormantEndDate.setText(h.getHardwareInfo().getDormantEndDate());
+
+        ArrayList<String> departmentNames = new ArrayList<>();
+        departmentNames.add("Служба младшего механика");
+        departmentNames.add("Служба главного механика");
+        ArrayAdapter<String> adapter = new ArrayAdapter(ctx, R.layout.spinner_layout, departmentNames);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        fhib.spinnerDepartmentName.setAdapter(adapter);
+        fhib.spinnerDepartmentName.setSelection(departmentNames.indexOf(h.getHardwareInfo().getDepartmentName()));
+
+        ArrayList<String> statusValues = new ArrayList<>();
+        statusValues.add("В эксплуатации");
+        statusValues.add("Выведено из эксплуатации");
+        ArrayAdapter<String> adapter2 = new ArrayAdapter(ctx, R.layout.spinner_layout, statusValues);
+        adapter2.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        fhib.spinnerStatusValue.setAdapter(adapter2);
+        fhib.spinnerStatusValue.setSelection(departmentNames.indexOf(h.getHardwareInfo().getStatusValue()));
+
+
+        findChildAndSetEnabled(fhib.linearLayoutHardwareInfo);
+
+    }
+
+    private void findChildAndSetEnabled(ViewGroup vg){
+        for (int i = 0; i < vg.getChildCount(); i++) {
+            View v = vg.getChildAt(i);
+            if ((v instanceof EditText)
+                    || (v instanceof CheckBox)
+                    || (v instanceof Spinner)){
+                v.setEnabled(!h.getStatusCode().equals("withdrawn"));
+            }
+            if (v instanceof ViewGroup){
+                findChildAndSetEnabled((ViewGroup) v);
+            }
+        }
     }
 
 
     /*
         Метод, показывающий прогресс бар перед началом операции
      */
-    private void showProgress(){
+    private void showProgress() {
         fhib.progressBar.setVisibility(View.VISIBLE);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.CENTER;
         fhib.progressBar.setLayoutParams(params);
         fhib.linearLayoutHardwareInfo.setVisibility(View.INVISIBLE);
@@ -110,16 +150,16 @@ public class HardwareInfoBlock {
     /*
         Метод, скрывающий прогресс бар после завершения операции
      */
-    private void hideProgress(){
+    private void hideProgress() {
         fhib.progressBar.setVisibility(View.INVISIBLE);
-        fhib.progressBar.setLayoutParams(new LinearLayout.LayoutParams(0,0));
+        fhib.progressBar.setLayoutParams(new LinearLayout.LayoutParams(0, 0));
         fhib.linearLayoutHardwareInfo.setVisibility(View.VISIBLE);
     }
 
     /*
         Метод для вывода тоста с информацией об ошибке
      */
-    private void showErrorToast(String message){
+    private void showErrorToast(String message) {
         Toast.makeText(ctx, message, Toast.LENGTH_LONG).show();
     }
 }

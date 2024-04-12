@@ -2,8 +2,9 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.HardwareApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- <item name="colorPrimary">@color/block_h</item> -->
     </style>
 
     <style name="Theme.HardwareApplication" parent="Base.Theme.HardwareApplication" />
+
 </resources>
