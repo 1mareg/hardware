@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".view.HardwareApplication"
+        android:name=".HardwareApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,20 +16,20 @@
         android:theme="@style/Theme.HardwareApplication"
         tools:targetApi="31">
         <activity
-            android:name=".view.Task3Activity"
+            android:name=".view.activity.Task3Activity"
             android:exported="false" />
         <activity
-            android:name=".view.Task2Activity"
+            android:name=".view.activity.Task2Activity"
             android:exported="false"
             android:label="@string/title_activity_task2"
             android:theme="@style/Theme.HardwareApplication" />
         <activity
-            android:name=".view.Task1Activity"
+            android:name=".view.activity.Task1Activity"
             android:exported="false"
             android:label="@string/title_activity_task1"
             android:theme="@style/Theme.HardwareApplication" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.HardwareApplication">

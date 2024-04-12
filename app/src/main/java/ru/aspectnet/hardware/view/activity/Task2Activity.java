@@ -1,40 +1,26 @@
-package ru.aspectnet.hardware.view;
+package ru.aspectnet.hardware.view.activity;
 
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.core.view.WindowCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import ru.aspectnet.hardware.api.dto.task1.HardwareDto;
-import ru.aspectnet.hardware.api.dto.task1.ReturnValueDto;
+import ru.aspectnet.hardware.HardwareApplication;
 import ru.aspectnet.hardware.api.dto.task2.RequestDto;
 import ru.aspectnet.hardware.api.dto.task2.ReturnValueHardwareInfoDto;
-import ru.aspectnet.hardware.api.services.ReturnValueApi;
 import ru.aspectnet.hardware.databinding.ActivityTask2Binding;
 
-import ru.aspectnet.hardware.R;
-import ru.aspectnet.hardware.model.convert.HardwareConverter;
 import ru.aspectnet.hardware.model.convert.HardwareInfoConverter;
 import ru.aspectnet.hardware.model.data.Hardware;
 import ru.aspectnet.hardware.model.data.HardwareInfo;
 import ru.aspectnet.hardware.model.data.HardwarePackage;
+import ru.aspectnet.hardware.view.block.HardwareInfoBlock;
 
 public class Task2Activity extends AppCompatActivity {
 
@@ -54,8 +40,10 @@ public class Task2Activity extends AppCompatActivity {
         h = HardwareApplication.getInstance().getHardware();
 
         // загружаем данные по REST
-        loadData();
+        //loadData();
 
+        HardwareInfoBlock hib = new HardwareInfoBlock(binding.formHardwareInfo, h, this);
+        hib.loadDataHardwareInfo();
     }
 
     /*

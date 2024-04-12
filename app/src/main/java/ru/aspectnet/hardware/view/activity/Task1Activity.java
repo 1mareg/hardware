@@ -1,4 +1,4 @@
-package ru.aspectnet.hardware.view;
+package ru.aspectnet.hardware.view.activity;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -18,11 +18,9 @@ import android.widget.Toast;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import ru.aspectnet.hardware.HardwareApplication;
 import ru.aspectnet.hardware.api.dto.task1.HardwareDto;
 import ru.aspectnet.hardware.api.dto.task1.ReturnValueDto;
-import ru.aspectnet.hardware.api.services.ReturnValueApi;
 import ru.aspectnet.hardware.databinding.ActivityTask1Binding;
 
 import ru.aspectnet.hardware.R;

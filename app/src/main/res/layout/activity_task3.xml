@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:fitsSystemWindows="true"
-    tools:context=".view.Task3Activity">
+    tools:context=".view.activity.Task3Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
