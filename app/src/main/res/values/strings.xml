@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">Hardware Application</string>
-    <string name="task1button">Задание 1. Страница со списком оборудования</string>
     <string name="title_activity_task1">Task1Activity</string>
+    <string name="task1button">Задание 1. Страница со списком оборудования</string>
     <string name="task2button">Задание 2. Карточка оборудования</string>
+    <string name="task3button">Задание 3. Страница с комплексным отображением оборудования</string>
+    <string name="task1name">Страница со списком оборудования</string>
+    <string name="task2name">Карточка оборудования</string>
+    <string name="task3name">Страница с комплексным отображением оборудования</string>
     <string name="title_activity_task2">Task2Activity</string>
     <string name="task2_h1">Общие данные</string>
     <string name="task2_h2">Паспорт</string>
     <string name="task2_h3">Параметры эксплуатации</string>
-    <string name="task3button">Задание 3. Страница с комплексным отображением оборудования</string>
 </resources>

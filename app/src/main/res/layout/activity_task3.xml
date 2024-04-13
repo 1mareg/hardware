@@ -11,47 +11,65 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_block"
+            android:background="@color/block_background_color"
+            android:paddingHorizontal="@dimen/padding_horizontal_block"
+            android:paddingVertical="@dimen/padding_vertical_block"
+            android:text="@string/task3name"
+            android:textColor="@color/block_h"
+            android:textSize="@dimen/text_size_block_h"
+            android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="4dp"
-            android:layout_weight="40"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="invisible" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_weight="40"
+                android:orientation="vertical">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:id="@+id/table_hardware"
-                    android:layout_width="match_parent"
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_gravity="center"
+                    android:visibility="invisible" />
 
-                    <include layout="@layout/task3_table_row" />
-                </LinearLayout>
-            </ScrollView>
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/table_hardware"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="60"
-            android:orientation="vertical">
+                        <include layout="@layout/task3_table_row" />
+                    </LinearLayout>
+                </ScrollView>
 
-            <include
-                android:id="@+id/formHardwareInfo"
-                layout="@layout/form_hardware_info" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="60"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/formHardwareInfo"
+                    layout="@layout/form_hardware_info" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

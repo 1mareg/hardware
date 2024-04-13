@@ -4,14 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     android:fitsSystemWindows="true"
     tools:context=".view.activity.Task1Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_block"
+            android:background="@color/block_background_color"
+            android:paddingHorizontal="@dimen/padding_horizontal_block"
+            android:paddingVertical="@dimen/padding_vertical_block"
+            android:text="@string/task1button"
+            android:textColor="@color/block_h"
+            android:textSize="@dimen/text_size_block_h"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
