@@ -28,7 +28,6 @@ public class Task3Activity extends AppCompatActivity {
             // скрываем слой-заглушку
             binding.linearLayoutStubColumn.setVisibility(View.INVISIBLE);
             binding.linearLayoutStubColumn.setLayoutParams(new LinearLayout.LayoutParams(0, 0));
-
             HardwareInfoBlock hib = new HardwareInfoBlock(binding.formHardwareInfo, h, this);
             hib.loadDataHardwareInfo();
         };

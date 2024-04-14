@@ -2,17 +2,24 @@ package ru.aspectnet.hardware.view.block;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +43,8 @@ public class HardwareBlock {
     private Context ctx; // контекст
     private boolean filterOn = false; // признак необходимости фильтрации данных
     private HardwarePackage hp; // Объект с информацией о загруженном по REST оборудовании
+    private HashMap<TextView, Integer> oldTextColors = new HashMap<>(); // карта с элементами и их цветом текста до выделения
+    private HashMap<LinearLayout, Integer> oldBackgrounds = new HashMap<>(); // карта с элементами и их цветом фона до выделения
 
     public HardwareBlock(LinearLayout progressBar,
                          LinearLayout tableHardware,
@@ -107,7 +116,11 @@ public class HardwareBlock {
             LinearLayout ll = (LinearLayout) inflater.inflate(resource, null);
 
             ll.setOnClickListener((l) -> {
-                otrc.onClick(h,ctx);
+                otrc.onClick(h, ctx);
+
+                unhighlightAllBlocks();
+                highlightBlock((ViewGroup) l);
+                //displayHardwareTable();
             });
 
             TextView tv1 = (TextView) ll.findViewById(R.id.col1);
@@ -160,6 +173,44 @@ public class HardwareBlock {
             tv4.setBackground(new ColorDrawable(ctx.getColor(criticalityColor)));
 
             tableHardware.addView(ll);
+        }
+    }
+
+    /*
+        Метод убирющий выделение цветом со всех блоков
+     */
+    private void unhighlightAllBlocks() {
+        for (Map.Entry<TextView, Integer> entry : oldTextColors.entrySet()) {
+            entry.getKey().setTextColor(entry.getValue());
+        }
+        oldTextColors.clear();
+
+        for (Map.Entry<LinearLayout, Integer> entry : oldBackgrounds.entrySet()) {
+            entry.getKey().setBackgroundColor(entry.getValue());
+        }
+        oldBackgrounds.clear();
+    }
+
+    /*
+        Метод, подсвечивающий выбранный блок цветом
+     */
+    private void highlightBlock(ViewGroup vg) {
+        for (int i = 0; i < vg.getChildCount(); i++) {
+            View v = vg.getChildAt(i);
+            if (v instanceof LinearLayout) {
+                ColorDrawable cd = (ColorDrawable) ((LinearLayout) v).getBackground();
+                if (cd != null) {
+                    oldBackgrounds.put((LinearLayout) v, cd.getColor());
+                    v.setBackgroundColor(ContextCompat.getColor(ctx, R.color.block_background_highlight_color));
+                }
+            }
+            if (v instanceof TextView) {
+                oldTextColors.put((TextView) v, ((TextView) v).getCurrentTextColor());
+                ((TextView) v).setTextColor(ContextCompat.getColor(ctx, R.color.text_color_block_highlight));
+            }
+            if (v instanceof ViewGroup) {
+                highlightBlock((ViewGroup) v);
+            }
         }
     }
 
