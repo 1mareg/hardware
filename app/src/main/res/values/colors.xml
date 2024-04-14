@@ -19,4 +19,7 @@
     <color name="text_color_block_highlight">#FFFBFDFF</color>
     <color name="text_color_edit_text">#757575</color>
     <color name="text_color_for_colored_background">#FFFFFFFF</color>
+
+    <color name="button_background_color">#FF12A3F7</color>
+    <color name="button_text_color">#FFFBFDFF</color>
 </resources>

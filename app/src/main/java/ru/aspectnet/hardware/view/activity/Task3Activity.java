@@ -36,6 +36,8 @@ public class Task3Activity extends AppCompatActivity {
                 R.layout.task3_table_row,
                 otrc,
                 this);
+
+        hb.setHighlight(true); // строки выделяются при выборе
         // загружаем данные по REST
         hb.loadDataHardware();
     }

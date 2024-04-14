@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar);
-
         // слушатель нажатия на кнопку вызывает новое активити с перечнем оборудования
         binding.buttonTask1.setOnClickListener((b) -> {
             Intent intent = new Intent(this, Task1Activity.class);

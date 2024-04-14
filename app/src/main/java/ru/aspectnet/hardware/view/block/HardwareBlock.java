@@ -45,6 +45,7 @@ public class HardwareBlock {
     private HardwarePackage hp; // Объект с информацией о загруженном по REST оборудовании
     private HashMap<TextView, Integer> oldTextColors = new HashMap<>(); // карта с элементами и их цветом текста до выделения
     private HashMap<LinearLayout, Integer> oldBackgrounds = new HashMap<>(); // карта с элементами и их цветом фона до выделения
+    private boolean isHighlight = false; // признак, отвечающий за необходимость подстветки выбранных строк
 
     public HardwareBlock(LinearLayout progressBar,
                          LinearLayout tableHardware,
@@ -118,9 +119,10 @@ public class HardwareBlock {
             ll.setOnClickListener((l) -> {
                 otrc.onClick(h, ctx);
 
-                unhighlightAllBlocks();
-                highlightBlock((ViewGroup) l);
-                //displayHardwareTable();
+                if (isHighlight) {
+                    unhighlightAllBlocks();
+                    highlightBlock((ViewGroup) l);
+                }
             });
 
             TextView tv1 = (TextView) ll.findViewById(R.id.col1);
@@ -263,4 +265,7 @@ public class HardwareBlock {
         }
     }
 
+    public void setHighlight(boolean highlight) {
+        isHighlight = highlight;
+    }
 }

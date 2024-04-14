@@ -16,4 +16,5 @@
     <string name="activity_task1_table_col3_h">Статус</string>
     <string name="activity_task1_table_col4_h">Критичность</string>
     <string name="task1_filter_h">Фильтрация данных:</string>
+    <string name="text_button_save">Сохранить</string>
 </resources>
