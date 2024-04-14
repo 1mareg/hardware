@@ -4,13 +4,15 @@
     <dimen name="padding_horizontal_block">20dp</dimen>
     <dimen name="padding_vertical_block">10dp</dimen>
     <dimen name="margin_vertical_block_body">8dp</dimen>
-    <dimen name="text_size_block_p">16sp</dimen>
+    <dimen name="text_size_block_p">18sp</dimen>
+    <dimen name="text_size_table">20sp</dimen>
     <dimen name="padding_edit_text">4dp</dimen>
-    <dimen name="text_size_edit_text">16sp</dimen>
+    <dimen name="text_size_edit_text">18sp</dimen>
     <dimen name="layout_margin_right_text_view">10dp</dimen>
     <dimen name="layout_margin_bottom_block">2dp</dimen>
-    <dimen name="text_size_colored_background">12dp</dimen>
-    <dimen name="margin_right_table_cell">10dp</dimen>
+    <dimen name="text_size_colored_background">15sp</dimen>
+    <dimen name="margin_right_table_cell">20dp</dimen>
     <dimen name="layout_margin_vertical_button_main_activity">8dp</dimen>
     <dimen name="text_size_button">18sp</dimen>
+    <dimen name="layout_margin_bottom_block_h">10dp</dimen>
 </resources>

@@ -9,7 +9,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
@@ -99,10 +102,12 @@ public class HardwareInfoBlock {
         fhib.editTextDormantStartDate.setText(h.getHardwareInfo().getDormantStartDate());
         fhib.editTextDormantEndDate.setText(h.getHardwareInfo().getDormantEndDate());
 
+        int spinnerLayout = h.getStatusCode().equals("withdrawn") ? R.layout.spinner_layout_disabled : R.layout.spinner_layout;
+
         ArrayList<String> departmentNames = new ArrayList<>();
         departmentNames.add("Служба младшего механика");
         departmentNames.add("Служба главного механика");
-        ArrayAdapter<String> adapter = new ArrayAdapter(ctx, R.layout.spinner_layout, departmentNames);
+        ArrayAdapter<String> adapter = new ArrayAdapter(ctx, spinnerLayout, departmentNames);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         fhib.spinnerDepartmentName.setAdapter(adapter);
         fhib.spinnerDepartmentName.setSelection(departmentNames.indexOf(h.getHardwareInfo().getDepartmentName()));
@@ -110,7 +115,7 @@ public class HardwareInfoBlock {
         ArrayList<String> statusValues = new ArrayList<>();
         statusValues.add("В эксплуатации");
         statusValues.add("Выведено из эксплуатации");
-        ArrayAdapter<String> adapter2 = new ArrayAdapter(ctx, R.layout.spinner_layout, statusValues);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter(ctx, spinnerLayout, statusValues);
         adapter2.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         fhib.spinnerStatusValue.setAdapter(adapter2);
         fhib.spinnerStatusValue.setSelection(statusValues.indexOf(h.getHardwareInfo().getStatusValue()));
@@ -120,15 +125,27 @@ public class HardwareInfoBlock {
 
     }
 
-    private void findChildAndSetEnabled(ViewGroup vg){
+    private void findChildAndSetEnabled(ViewGroup vg) {
         for (int i = 0; i < vg.getChildCount(); i++) {
             View v = vg.getChildAt(i);
+
+            boolean isEnabled = !h.getStatusCode().equals("withdrawn");
+
             if ((v instanceof EditText)
                     || (v instanceof CheckBox)
-                    || (v instanceof Spinner)){
-                v.setEnabled(!h.getStatusCode().equals("withdrawn"));
+                    || (v instanceof Spinner)) {
+                v.setEnabled(isEnabled);
             }
-            if (v instanceof ViewGroup){
+
+            if (v instanceof EditText) {
+                if (isEnabled) {
+                    ((TextView) v).setTextColor(ContextCompat.getColor(ctx, R.color.text_color_edit_text));
+                } else {
+                    ((TextView) v).setTextColor(ContextCompat.getColor(ctx, R.color.text_color_edit_text_disabled));
+                }
+            }
+
+            if (v instanceof ViewGroup) {
                 findChildAndSetEnabled((ViewGroup) v);
             }
         }

@@ -10,14 +10,15 @@
     <color name="status_gray">#CC999999</color>
     <color name="status_green">#CC3A731A</color>
 
-    <color name="background_color">#FFF3F3F3</color>
+    <color name="background_color">#FFEEEEEE</color>
     <color name="block_background_color">#FFFFFFFF</color>
     <color name="block_background_highlight_color">#FF12A3F7</color>
     <color name="block_h">#FF59BFF9</color>
-    <color name="edit_text_border_color">#FFEFEFEF</color>
+    <color name="edit_text_border_color">#FFCCCCCC</color>
     <color name="text_color_block_p">#868686</color>
     <color name="text_color_block_highlight">#FFFBFDFF</color>
     <color name="text_color_edit_text">#757575</color>
+    <color name="text_color_edit_text_disabled">#BBBBBB</color>
     <color name="text_color_for_colored_background">#FFFFFFFF</color>
 
     <color name="button_background_color">#FF12A3F7</color>

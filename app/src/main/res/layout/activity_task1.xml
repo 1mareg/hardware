@@ -41,7 +41,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_right_table_cell"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:gravity="right"
                 android:text="@string/activity_task1_table_col1_h"
                 android:textColor="@color/block_h"
@@ -114,6 +114,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/layout_margin_bottom_block_h"
                 android:text="@string/task1_filter_h"
                 android:textColor="@color/block_h"
                 android:textSize="@dimen/text_size_block_h" />
@@ -121,15 +122,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="@dimen/margin_vertical_block_body">
+                android:layout_marginVertical="@dimen/margin_vertical_block_body"
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/editTextF1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/margin_right_table_cell"
-                    android:layout_weight="4"
+                    android:layout_weight="3"
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="text"
@@ -156,13 +157,13 @@
                     android:id="@+id/spinner_status_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="7"/>
+                    android:layout_weight="7" />
 
                 <Spinner
                     android:id="@+id/spinner_criticality"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="7"/>
+                    android:layout_weight="7" />
             </LinearLayout>
         </LinearLayout>
 
