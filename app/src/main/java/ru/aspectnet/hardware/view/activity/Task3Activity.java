@@ -12,15 +12,17 @@ import ru.aspectnet.hardware.view.block.HardwareBlock;
 import ru.aspectnet.hardware.view.block.HardwareInfoBlock;
 import ru.aspectnet.hardware.view.block.OnTableRowClick;
 
-public class Task3Activity extends AppCompatActivity {
+/*
+    Активити для отображения страницы из двух частей
+ */
 
-    private ActivityTask3Binding binding;
+public class Task3Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityTask3Binding.inflate(getLayoutInflater());
+        ActivityTask3Binding binding = ActivityTask3Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // лямбда с операциями, выполняющимися после нажатия на строку таблицы
@@ -31,6 +33,7 @@ public class Task3Activity extends AppCompatActivity {
             HardwareInfoBlock hib = new HardwareInfoBlock(binding.formHardwareInfo, h, this);
             hib.loadDataHardwareInfo();
         };
+
         HardwareBlock hb = new HardwareBlock(binding.preloader.progressBar,
                 binding.tableHardware,
                 R.layout.task3_table_row,

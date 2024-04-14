@@ -17,15 +17,18 @@
         tools:targetApi="31">
         <activity
             android:name=".view.activity.Task3Activity"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".view.activity.Task2Activity"
             android:exported="false"
+            android:screenOrientation="landscape"
             android:label="@string/title_activity_task2"
             android:theme="@style/Theme.HardwareApplication" />
         <activity
             android:name=".view.activity.Task1Activity"
             android:exported="false"
+            android:screenOrientation="landscape"
             android:label="@string/title_activity_task1"
             android:theme="@style/Theme.HardwareApplication" />
         <activity

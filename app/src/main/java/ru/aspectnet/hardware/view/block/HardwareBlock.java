@@ -2,9 +2,7 @@ package ru.aspectnet.hardware.view.block;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -33,7 +31,7 @@ import ru.aspectnet.hardware.model.data.Hardware;
 import ru.aspectnet.hardware.model.data.HardwarePackage;
 
 /*
-    Класс для загрузки и вывода на экран подробной информации об оборудовании
+    Класс для загрузки и вывода на экран информации о списке оборудования
  */
 public class HardwareBlock {
     private LinearLayout progressBar; // прелоадер
@@ -64,8 +62,8 @@ public class HardwareBlock {
     }
 
     /*
-            Метод для загрузки, преобразования и отображения данных об оборудовании
-         */
+        Метод для загрузки, преобразования и отображения данных об оборудовании
+     */
     public void loadDataHardware() {
 
         showProgress();
@@ -75,11 +73,6 @@ public class HardwareBlock {
         returnValue.enqueue(new Callback<ReturnValueDto>() {
             @Override
             public void onResponse(Call<ReturnValueDto> call, Response<ReturnValueDto> response) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
                 if (response.isSuccessful()) {
                     ReturnValueDto rvd = response.body();
                     hp = new HardwarePackage();
@@ -90,7 +83,6 @@ public class HardwareBlock {
 
                     filterTable();
                 } else {
-                    Log.d("test", "response code " + response.code());
                     showErrorToast("Во время загрузки данных произошла ошибка! Повторите попытку!");
                 }
                 hideProgress();
@@ -98,7 +90,6 @@ public class HardwareBlock {
 
             @Override
             public void onFailure(Call<ReturnValueDto> call, Throwable t) {
-                Log.d("test", "failure " + t);
                 hideProgress();
                 showErrorToast("Во время загрузки данных произошла ошибка. Повторите попытку!");
             }
@@ -168,8 +159,12 @@ public class HardwareBlock {
                     criticalityColor = R.color.criticality_green;
                     break;
                 }
-                default: {
+                case "5": {
                     criticalityColor = R.color.criticality_gray;
+                    break;
+                }
+                default: {
+                    criticalityColor = R.color.criticality_white;
                 }
             }
             tv4.setBackground(new ColorDrawable(ctx.getColor(criticalityColor)));
@@ -179,7 +174,7 @@ public class HardwareBlock {
     }
 
     /*
-        Метод убирющий выделение цветом со всех блоков
+        Метод возвращающий цвета текста и фона для всех элементов, для которых ранее эти стили были изменены при выделении
      */
     private void unhighlightAllBlocks() {
         for (Map.Entry<TextView, Integer> entry : oldTextColors.entrySet()) {

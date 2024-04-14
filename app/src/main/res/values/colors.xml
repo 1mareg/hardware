@@ -6,6 +6,7 @@
     <color name="criticality_yellow">#CCACA200</color>
     <color name="criticality_green">#CC3A731A</color>
     <color name="criticality_gray">#CC999999</color>
+    <color name="criticality_white">#CCFFFFFF</color>
     <color name="status_white">#CCFFFFFF</color>
     <color name="status_gray">#CC999999</color>
     <color name="status_green">#CC3A731A</color>

@@ -4,17 +4,14 @@ package ru.aspectnet.hardware.model.convert;
     Класс для преобразования данных из HardwareInfoDto (сущность, полученная по REST) в HardwareInfo (класс данных для использования в приложении)
  */
 
-import ru.aspectnet.hardware.api.dto.task1.HardwareDto;
 import ru.aspectnet.hardware.api.dto.task2.HardwareInfoDto;
 import ru.aspectnet.hardware.api.dto.task2.ReturnValueHardwareInfoDto;
-import ru.aspectnet.hardware.model.data.Hardware;
 import ru.aspectnet.hardware.model.data.HardwareInfo;
 
 public class HardwareInfoConverter {
     public HardwareInfo convert(ReturnValueHardwareInfoDto rvhid){
         HardwareInfo hi = new HardwareInfo();
         HardwareInfoDto hid = rvhid.getReturnValue();
-        // hi.setCode(hid.); // TODO код надо взять из друго объекта
         hi.setName(hid.getName());
         hi.setDepartmentName(hid.getDepartment().getName());
         hi.setStatusValue(hid.getStatus().getValue());

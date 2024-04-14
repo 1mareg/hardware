@@ -51,16 +51,12 @@ public class HardwareInfoBlock {
 
         showProgress();
 
-        Call<ReturnValueHardwareInfoDto> returnValueHardwareInfoDto = HardwareApplication.getInstance().getReturnValueApi().returnValueHardwareInfo(new RequestDto(h.getId()));
+        Call<ReturnValueHardwareInfoDto> returnValueHardwareInfoDto
+                = HardwareApplication.getInstance().getReturnValueApi().returnValueHardwareInfo(new RequestDto(h.getId()));
 
         returnValueHardwareInfoDto.enqueue(new Callback<ReturnValueHardwareInfoDto>() {
             @Override
             public void onResponse(Call<ReturnValueHardwareInfoDto> call, Response<ReturnValueHardwareInfoDto> response) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
                 if (response.isSuccessful()) {
                     ReturnValueHardwareInfoDto rvhid = response.body();
                     HardwareInfo hi = new HardwareInfoConverter().convert(rvhid);
@@ -119,7 +115,6 @@ public class HardwareInfoBlock {
         adapter2.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         fhib.spinnerStatusValue.setAdapter(adapter2);
         fhib.spinnerStatusValue.setSelection(statusValues.indexOf(h.getHardwareInfo().getStatusValue()));
-
 
         findChildAndSetEnabled(fhib.linearLayoutHardwareInfo);
 

@@ -1,12 +1,9 @@
 package ru.aspectnet.hardware.model.data;
 
-import lombok.Data;
-
 /*
     Класс для хранения подробной информации об оборудовании (об одном устройстве) для обработки
  */
 public class HardwareInfo {
-    private String code;                // код
     private String name;                // наименование
     private String departmentName;      // отдел
     private String statusValue;         // статус
@@ -27,14 +24,6 @@ public class HardwareInfo {
     private String dormantEndDate;      // окончание неактивности
 
     private String statusCode;          // код статуса
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public String getName() {
         return name;
@@ -162,10 +151,6 @@ public class HardwareInfo {
 
     public void setDormantEndDate(String dormantEndDate) {
         this.dormantEndDate = dormantEndDate;
-    }
-
-    public String getStatusCode() {
-        return statusCode;
     }
 
     public void setStatusCode(String statusCode) {
