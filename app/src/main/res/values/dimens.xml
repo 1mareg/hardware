@@ -10,4 +10,5 @@
     <dimen name="layout_margin_right_text_view">10dp</dimen>
     <dimen name="layout_margin_bottom_block">2dp</dimen>
     <dimen name="text_size_colored_background">12dp</dimen>
+    <dimen name="margin_right_table_cell">10dp</dimen>
 </resources>

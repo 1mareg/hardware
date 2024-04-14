@@ -11,4 +11,9 @@
     <string name="task2_h1">Общие данные</string>
     <string name="task2_h2">Паспорт</string>
     <string name="task2_h3">Параметры эксплуатации</string>
+    <string name="activity_task1_table_col1_h">Код</string>
+    <string name="activity_task1_table_col2_h">Наименование</string>
+    <string name="activity_task1_table_col3_h">Статус</string>
+    <string name="activity_task1_table_col4_h">Критичность</string>
+    <string name="task1_filter_h">Фильтрация данных:</string>
 </resources>

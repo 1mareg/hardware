@@ -28,7 +28,7 @@ import ru.aspectnet.hardware.model.data.HardwarePackage;
     Класс для загрузки и вывода на экран подробной информации об оборудовании
  */
 public class HardwareBlock {
-    private ProgressBar progressBar; // прелоадер
+    private LinearLayout progressBar; // прелоадер
     private LinearLayout tableHardware; // слой, содержащий таблицу
     private int resource; // xml, по которому формируется строка таблицы
     private OnTableRowClick otrc; // функция, выполняющаяся при нажатии на строку таблицы
@@ -36,7 +36,7 @@ public class HardwareBlock {
     private boolean filterOn = false; // признак необходимости фильтрации данных
     private HardwarePackage hp; // Объект с информацией о загруженном по REST оборудовании
 
-    public HardwareBlock(ProgressBar progressBar,
+    public HardwareBlock(LinearLayout progressBar,
                          LinearLayout tableHardware,
                          int resource,
                          OnTableRowClick otrc,
@@ -168,7 +168,7 @@ public class HardwareBlock {
      */
     private void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         params.gravity = Gravity.CENTER;
         progressBar.setLayoutParams(params);
         tableHardware.setVisibility(View.INVISIBLE);

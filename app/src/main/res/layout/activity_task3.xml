@@ -37,12 +37,9 @@
                 android:layout_weight="40"
                 android:orientation="vertical">
 
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:visibility="invisible" />
+                <include
+                    android:id="@+id/preloader"
+                    layout="@layout/preloader_layout" />
 
                 <ScrollView
                     android:layout_width="match_parent"

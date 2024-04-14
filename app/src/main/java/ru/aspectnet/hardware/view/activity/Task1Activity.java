@@ -36,7 +36,7 @@ public class Task1Activity extends AppCompatActivity {
             ctx.startActivity(intent);
         };
 
-        HardwareBlock hb = new HardwareBlock(binding.progressBar,
+        HardwareBlock hb = new HardwareBlock(binding.preloader.progressBar,
                 binding.tableHardware,
                 R.layout.task1_table_row,
                 otrc,

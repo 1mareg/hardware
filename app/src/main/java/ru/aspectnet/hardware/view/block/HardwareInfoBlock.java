@@ -140,10 +140,10 @@ public class HardwareInfoBlock {
         Метод, показывающий прогресс бар перед началом операции
      */
     private void showProgress() {
-        fhib.progressBar.setVisibility(View.VISIBLE);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        fhib.preloader.progressBar.setVisibility(View.VISIBLE);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         params.gravity = Gravity.CENTER;
-        fhib.progressBar.setLayoutParams(params);
+        fhib.preloader.progressBar.setLayoutParams(params);
         fhib.linearLayoutHardwareInfo.setVisibility(View.INVISIBLE);
     }
 
@@ -151,8 +151,8 @@ public class HardwareInfoBlock {
         Метод, скрывающий прогресс бар после завершения операции
      */
     private void hideProgress() {
-        fhib.progressBar.setVisibility(View.INVISIBLE);
-        fhib.progressBar.setLayoutParams(new LinearLayout.LayoutParams(0, 0));
+        fhib.preloader.progressBar.setVisibility(View.INVISIBLE);
+        fhib.preloader.progressBar.setLayoutParams(new LinearLayout.LayoutParams(0, 0));
         fhib.linearLayoutHardwareInfo.setVisibility(View.VISIBLE);
     }
 

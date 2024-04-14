@@ -26,7 +26,7 @@ public class Task3Activity extends AppCompatActivity {
             HardwareInfoBlock hib = new HardwareInfoBlock(binding.formHardwareInfo, h, this);
             hib.loadDataHardwareInfo();
         };
-        HardwareBlock hb = new HardwareBlock(binding.progressBar,
+        HardwareBlock hb = new HardwareBlock(binding.preloader.progressBar,
                 binding.tableHardware,
                 R.layout.task3_table_row,
                 otrc,

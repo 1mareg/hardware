@@ -2,42 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="5dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingVertical="5dp">
 
     <TextView
         android:id="@+id/col1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="6"
-        android:layout_marginRight="5dp"
-        android:text="101014" />
+        android:layout_marginRight="@dimen/margin_right_table_cell"
+        android:layout_weight="4"
+        android:text="101014"
+        android:gravity="right"
+        android:textColor="@color/text_color_block_p"
+        android:textSize="@dimen/text_size_block_p" />
 
     <TextView
         android:id="@+id/col2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_right_table_cell"
         android:layout_weight="20"
-        android:layout_marginRight="5dp"
-        android:text="Конвейер ленточный №4 59747 (отсев ≥12мм) EP 400, B-500, L=19,6 м" />
+        android:text="Конвейер ленточный №4 59747 (отсев ≥12мм) EP 400, B-500, L=19,6 м"
+        android:textColor="@color/text_color_block_p"
+        android:textSize="@dimen/text_size_block_p" />
 
     <TextView
         android:id="@+id/col3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_right_table_cell"
         android:layout_weight="7"
-        android:layout_marginRight="5dp"
-        android:paddingHorizontal="2dp"
         android:gravity="center"
-        android:text="В эксплуатации" />
+        android:paddingHorizontal="2dp"
+        android:text="В эксплуатации"
+        android:textColor="@color/text_color_for_colored_background"
+        android:textSize="@dimen/text_size_block_p" />
 
     <TextView
         android:id="@+id/col4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="7"
-        android:paddingHorizontal="2dp"
         android:gravity="center"
-        android:text="Очень критично" />
+        android:paddingHorizontal="2dp"
+        android:text="Очень критично"
+        android:textColor="@color/text_color_for_colored_background"
+        android:textSize="@dimen/text_size_block_p" />
 </LinearLayout>
 

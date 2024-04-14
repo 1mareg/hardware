@@ -10,11 +10,9 @@
         android:background="@color/background_color"
         android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="invisible" />
+        <include
+            android:id="@+id/preloader"
+            layout="@layout/preloader_layout" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -432,10 +430,10 @@
                             android:layout_weight="3">
 
                             <CheckBox
-                                android:layout_marginLeft="-12dp"
                                 android:id="@+id/checkBox_ecology"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="-12dp"
                                 android:checked="true"
                                 app:buttonTint="@color/block_h"
                                 app:checkedState="checked" />
@@ -457,10 +455,10 @@
                             android:layout_weight="3">
 
                             <CheckBox
-                                android:layout_marginLeft="-12dp"
                                 android:id="@+id/checkBox_safety"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="-12dp"
                                 android:checked="true"
                                 app:buttonTint="@color/block_h"
                                 app:checkedState="unchecked" />
