@@ -102,7 +102,6 @@
                 android:orientation="vertical" />
         </ScrollView>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -122,47 +121,48 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginVertical="@dimen/margin_vertical_block_body">
 
                 <EditText
                     android:id="@+id/editTextF1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="6"
+                    android:layout_marginRight="@dimen/margin_right_table_cell"
+                    android:layout_weight="4"
+                    android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="text"
-                    android:text="" />
+                    android:padding="@dimen/padding_edit_text"
+                    android:text=""
+                    android:textColor="@color/text_color_edit_text"
+                    android:textSize="@dimen/text_size_edit_text" />
 
                 <EditText
                     android:id="@+id/editTextF2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="@dimen/margin_right_table_cell"
                     android:layout_weight="20"
+                    android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="text"
-                    android:text="" />
+                    android:padding="@dimen/padding_edit_text"
+                    android:text=""
+                    android:textColor="@color/text_color_edit_text"
+                    android:textSize="@dimen/text_size_edit_text" />
 
-                <EditText
-                    android:id="@+id/editTextF3"
+                <Spinner
+                    android:id="@+id/spinner_status_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="7"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="" />
+                    android:layout_weight="7"/>
 
-                <EditText
-                    android:id="@+id/editTextF4"
+                <Spinner
+                    android:id="@+id/spinner_criticality"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="7"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="" />
+                    android:layout_weight="7"/>
             </LinearLayout>
         </LinearLayout>
 

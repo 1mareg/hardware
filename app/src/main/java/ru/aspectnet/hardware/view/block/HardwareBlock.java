@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -201,11 +202,11 @@ public class HardwareBlock {
             EditText et2 = ((Activity) ctx).findViewById(R.id.editTextF2);
             hp.setNameFilter(et2.getText().toString());
 
-            EditText et3 = ((Activity) ctx).findViewById(R.id.editTextF3);
-            hp.setStatusFilter(et3.getText().toString());
+            Spinner s3 = ((Activity) ctx).findViewById(R.id.spinner_status_value);
+            hp.setStatusFilter(s3.getSelectedItem().toString());
 
-            EditText et4 = ((Activity) ctx).findViewById(R.id.editTextF4);
-            hp.setCriticalityFilter(et4.getText().toString());
+            Spinner s4 = ((Activity) ctx).findViewById(R.id.spinner_criticality);
+            hp.setCriticalityFilter(s4.getSelectedItem().toString());
 
             displayHardwareTable();
         }

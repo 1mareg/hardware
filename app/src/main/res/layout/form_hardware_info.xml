@@ -56,7 +56,6 @@
                             android:textSize="@dimen/text_size_block_p" />
 
                         <EditText
-
                             android:id="@+id/editText_code"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"

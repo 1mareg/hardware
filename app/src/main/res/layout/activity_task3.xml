@@ -63,6 +63,13 @@
                 android:layout_weight="60"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:id="@+id/linearLayout_stub_column"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/block_background_color"
+                    android:orientation="vertical" />
+
                 <include
                     android:id="@+id/formHardwareInfo"
                     layout="@layout/form_hardware_info" />

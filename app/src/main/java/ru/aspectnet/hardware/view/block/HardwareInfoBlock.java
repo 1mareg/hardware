@@ -1,7 +1,6 @@
 package ru.aspectnet.hardware.view.block;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -114,7 +113,7 @@ public class HardwareInfoBlock {
         ArrayAdapter<String> adapter2 = new ArrayAdapter(ctx, R.layout.spinner_layout, statusValues);
         adapter2.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         fhib.spinnerStatusValue.setAdapter(adapter2);
-        fhib.spinnerStatusValue.setSelection(departmentNames.indexOf(h.getHardwareInfo().getStatusValue()));
+        fhib.spinnerStatusValue.setSelection(statusValues.indexOf(h.getHardwareInfo().getStatusValue()));
 
 
         findChildAndSetEnabled(fhib.linearLayoutHardwareInfo);

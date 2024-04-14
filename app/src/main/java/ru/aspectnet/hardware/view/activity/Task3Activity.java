@@ -3,6 +3,8 @@ package ru.aspectnet.hardware.view.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import ru.aspectnet.hardware.R;
 import ru.aspectnet.hardware.databinding.ActivityTask3Binding;
@@ -23,6 +25,10 @@ public class Task3Activity extends AppCompatActivity {
 
         // лямбда с операциями, выполняющимися после нажатия на строку таблицы
         OnTableRowClick otrc = (h, ctx) -> {
+            // скрываем слой-заглушку
+            binding.linearLayoutStubColumn.setVisibility(View.INVISIBLE);
+            binding.linearLayoutStubColumn.setLayoutParams(new LinearLayout.LayoutParams(0, 0));
+
             HardwareInfoBlock hib = new HardwareInfoBlock(binding.formHardwareInfo, h, this);
             hib.loadDataHardwareInfo();
         };
