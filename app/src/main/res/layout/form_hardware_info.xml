@@ -12,7 +12,7 @@
 
         <include
             android:id="@+id/preloader"
-            layout="@layout/preloader_layout" />
+            layout="@layout/layout_preloader" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -27,19 +27,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/layout_margin_bottom_block"
-                    android:background="@color/block_background_color"
+                    android:layout_marginBottom="@dimen/margin_bottom_block"
+                    android:background="@color/background_color_block"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/padding_horizontal_block"
                     android:paddingVertical="@dimen/padding_vertical_block">
 
                     <TextView
+                        style="@style/BlockHeaderStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="@dimen/layout_margin_bottom_block_h"
-                        android:text="@string/task2_h1"
-                        android:textColor="@color/block_h"
-                        android:textSize="@dimen/text_size_block_h" />
+                        android:layout_marginBottom="@dimen/margin_bottom_block_head"
+                        android:text="@string/task2_h1" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -49,12 +48,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Код"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_code"
@@ -78,12 +77,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Наименование"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_name"
@@ -107,12 +106,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Отдел"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <Spinner
                             android:id="@+id/spinner_department_name"
@@ -129,12 +128,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Статус"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <Spinner
                             android:id="@+id/spinner_status_value"
@@ -151,12 +150,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Тип актива в структуре"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_hierarchy_level_type_name"
@@ -180,12 +179,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Код затрат"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_cost_code_name"
@@ -205,8 +204,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/layout_margin_bottom_block"
-                    android:background="@color/block_background_color"
+                    android:layout_marginBottom="@dimen/margin_bottom_block"
+                    android:background="@color/background_color_block"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/padding_horizontal_block"
                     android:paddingVertical="@dimen/padding_vertical_block">
@@ -214,10 +213,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="@dimen/layout_margin_bottom_block_h"
+                        android:layout_marginBottom="@dimen/margin_bottom_block_head"
                         android:text="@string/task2_h2"
-                        android:textColor="@color/block_h"
-                        android:textSize="@dimen/text_size_block_h" />
+                        android:textColor="@color/text_color_block_head"
+                        android:textSize="@dimen/text_size_block_head" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -227,12 +226,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Инвентарный номер"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_inventory_number"
@@ -256,12 +255,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Модель"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_model"
@@ -285,12 +284,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Дата ввода в эксплуатацию"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_commiss_date"
@@ -314,12 +313,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Первичная стоимость"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_initial_value"
@@ -343,12 +342,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Серийный номер"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_serial_number"
@@ -372,12 +371,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Дата установки"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_installation_date"
@@ -397,8 +396,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/layout_margin_bottom_block"
-                    android:background="@color/block_background_color"
+                    android:layout_marginBottom="@dimen/margin_bottom_block"
+                    android:background="@color/background_color_block"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/padding_horizontal_block"
                     android:paddingVertical="@dimen/padding_vertical_block">
@@ -406,10 +405,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="@dimen/layout_margin_bottom_block_h"
+                        android:layout_marginBottom="@dimen/margin_bottom_block_head"
                         android:text="@string/task2_h3"
-                        android:textColor="@color/block_h"
-                        android:textSize="@dimen/text_size_block_h" />
+                        android:textColor="@color/text_color_block_head"
+                        android:textSize="@dimen/text_size_block_head" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -419,12 +418,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="2"
                             android:gravity="right"
                             android:text="Экология"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <RelativeLayout
                             android:layout_width="0dp"
@@ -437,19 +436,19 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="-12dp"
                                 android:checked="true"
-                                app:buttonTint="@color/block_h"
+                                app:buttonTint="@color/text_color_block_head"
                                 app:checkedState="checked" />
                         </RelativeLayout>
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="2"
                             android:gravity="right"
                             android:text="Безопасность"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <RelativeLayout
                             android:layout_width="0dp"
@@ -462,7 +461,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="-12dp"
                                 android:checked="true"
-                                app:buttonTint="@color/block_h"
+                                app:buttonTint="@color/text_color_block_head"
                                 app:checkedState="unchecked" />
                         </RelativeLayout>
 
@@ -476,12 +475,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Причина остановки"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_dormant_cause_date"
@@ -505,12 +504,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Начало неактивности"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_dormant_start_date"
@@ -534,12 +533,12 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/layout_margin_right_text_view"
+                            android:layout_marginRight="@dimen/margin_right_text_view"
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="Окончание неактивности"
-                            android:textColor="@color/text_color_block_p"
-                            android:textSize="@dimen/text_size_block_p" />
+                            android:textColor="@color/text_color_block_body"
+                            android:textSize="@dimen/text_size_block_body" />
 
                         <EditText
                             android:id="@+id/editText_dormant_end_date"
@@ -568,9 +567,9 @@
                             style="@style/ButtonStyle"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="@dimen/layout_margin_vertical_button_main_activity"
+                            android:layout_marginVertical="@dimen/margin_vertical_button_main_activity"
                             android:layout_weight="40"
-                            android:text="@string/text_button_save" />
+                            android:text="@string/task2_button_save" />
                     </LinearLayout>
 
                 </LinearLayout>

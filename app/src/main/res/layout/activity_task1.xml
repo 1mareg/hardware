@@ -14,83 +14,77 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/BlockHeaderStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/layout_margin_bottom_block"
+            android:layout_marginBottom="@dimen/margin_bottom_block"
             android:layout_weight="0"
-            android:background="@color/block_background_color"
+            android:background="@color/background_color_block"
             android:paddingHorizontal="@dimen/padding_horizontal_block"
             android:paddingVertical="@dimen/padding_vertical_block"
             android:text="@string/task1button"
-            android:textColor="@color/block_h"
-            android:textSize="@dimen/text_size_block_h"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/layout_margin_bottom_block"
+            android:layout_marginBottom="@dimen/margin_bottom_block"
             android:layout_weight="0"
-            android:background="@color/block_background_color"
+            android:background="@color/background_color_block"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/padding_horizontal_block"
             android:paddingVertical="@dimen/padding_vertical_block">
 
             <TextView
                 android:id="@+id/textViewh1"
+                style="@style/BlockHeaderStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_right_table_cell"
                 android:layout_weight="3"
                 android:gravity="right"
-                android:text="@string/activity_task1_table_col1_h"
-                android:textColor="@color/block_h"
-                android:textSize="@dimen/text_size_block_h" />
+                android:text="@string/task1_table_col1_h" />
 
             <TextView
                 android:id="@+id/textViewh2"
+                style="@style/BlockHeaderStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_right_table_cell"
                 android:layout_weight="20"
                 android:gravity="center"
-                android:text="@string/activity_task1_table_col2_h"
-                android:textColor="@color/block_h"
-
-                android:textSize="@dimen/text_size_block_h" />
+                android:text="@string/task1_table_col2_h" />
 
             <TextView
                 android:id="@+id/textViewh3"
+                style="@style/BlockHeaderStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_right_table_cell"
                 android:layout_weight="7"
                 android:gravity="center"
-                android:text="@string/activity_task1_table_col3_h"
-                android:textColor="@color/block_h"
-                android:textSize="@dimen/text_size_block_h" />
+                android:text="@string/task1_table_col3_h" />
 
             <TextView
                 android:id="@+id/textViewh4"
+                style="@style/BlockHeaderStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:gravity="center"
-                android:text="@string/activity_task1_table_col4_h"
-                android:textColor="@color/block_h"
-                android:textSize="@dimen/text_size_block_h" />
+                android:text="@string/task1_table_col4_h" />
         </LinearLayout>
 
         <include
             android:id="@+id/preloader"
-            layout="@layout/preloader_layout" />
+            layout="@layout/layout_preloader" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/layout_margin_bottom_block"
+            android:layout_marginBottom="@dimen/margin_bottom_block"
             android:layout_weight="1"
-            android:background="@color/block_background_color"
+            android:background="@color/background_color_block"
             android:paddingHorizontal="@dimen/padding_horizontal_block"
             android:paddingVertical="@dimen/padding_vertical_block">
 
@@ -106,18 +100,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:background="@color/block_background_color"
+            android:background="@color/background_color_block"
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/padding_horizontal_block"
             android:paddingVertical="@dimen/padding_vertical_block">
 
             <TextView
+                style="@style/BlockHeaderStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/layout_margin_bottom_block_h"
-                android:text="@string/task1_filter_h"
-                android:textColor="@color/block_h"
-                android:textSize="@dimen/text_size_block_h" />
+                android:layout_marginBottom="@dimen/margin_bottom_block_head"
+                android:text="@string/task1_filter_h" />
 
             <LinearLayout
                 android:layout_width="match_parent"

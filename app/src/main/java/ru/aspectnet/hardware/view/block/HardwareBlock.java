@@ -3,7 +3,6 @@ package ru.aspectnet.hardware.view.block;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -128,15 +127,15 @@ public class HardwareBlock {
             int statusColor;
             switch (h.getStatusCode()) {
                 case "installed": {
-                    statusColor = R.color.status_green;
+                    statusColor = R.color.background_color_status_green;
                     break;
                 }
                 case "withdrawn": {
-                    statusColor = R.color.status_gray;
+                    statusColor = R.color.background_color_status_gray;
                     break;
                 }
                 default: {
-                    statusColor = R.color.status_white;
+                    statusColor = R.color.background_color_status_white;
                 }
             }
             tv3.setBackground(new ColorDrawable(ctx.getColor(statusColor)));
@@ -148,23 +147,23 @@ public class HardwareBlock {
             switch (h.getCriticalityCode()) {
                 case "1":
                 case "2": {
-                    criticalityColor = R.color.criticality_red;
+                    criticalityColor = R.color.background_color_criticality_red;
                     break;
                 }
                 case "3": {
-                    criticalityColor = R.color.criticality_yellow;
+                    criticalityColor = R.color.background_color_criticality_yellow;
                     break;
                 }
                 case "4": {
-                    criticalityColor = R.color.criticality_green;
+                    criticalityColor = R.color.background_color_criticality_green;
                     break;
                 }
                 case "5": {
-                    criticalityColor = R.color.criticality_gray;
+                    criticalityColor = R.color.background_color_criticality_gray;
                     break;
                 }
                 default: {
-                    criticalityColor = R.color.criticality_white;
+                    criticalityColor = R.color.background_color_criticality_white;
                 }
             }
             tv4.setBackground(new ColorDrawable(ctx.getColor(criticalityColor)));
@@ -198,7 +197,7 @@ public class HardwareBlock {
                 ColorDrawable cd = (ColorDrawable) ((LinearLayout) v).getBackground();
                 if (cd != null) {
                     oldBackgrounds.put((LinearLayout) v, cd.getColor());
-                    v.setBackgroundColor(ContextCompat.getColor(ctx, R.color.block_background_highlight_color));
+                    v.setBackgroundColor(ContextCompat.getColor(ctx, R.color.background_color_block_highlight));
                 }
             }
             if (v instanceof TextView) {

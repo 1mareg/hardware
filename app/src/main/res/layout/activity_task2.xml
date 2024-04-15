@@ -13,15 +13,14 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/BlockHeaderStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/layout_margin_bottom_block"
-            android:background="@color/block_background_color"
+            android:layout_marginBottom="@dimen/margin_bottom_block"
+            android:background="@color/background_color_block"
             android:paddingHorizontal="@dimen/padding_horizontal_block"
             android:paddingVertical="@dimen/padding_vertical_block"
             android:text="@string/task2button"
-            android:textColor="@color/block_h"
-            android:textSize="@dimen/text_size_block_h"
             android:textStyle="bold" />
 
         <include

@@ -36,7 +36,7 @@ public class Task3Activity extends AppCompatActivity {
 
         HardwareBlock hb = new HardwareBlock(binding.preloader.progressBar,
                 binding.tableHardware,
-                R.layout.task3_table_row,
+                R.layout.table_row_task3,
                 otrc,
                 this);
 

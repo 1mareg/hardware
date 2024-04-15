@@ -8,8 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/layout_margin_bottom_block"
-        android:background="@color/block_background_color"
+        android:layout_marginBottom="@dimen/margin_bottom_block"
+        android:background="@color/background_color_block"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/padding_horizontal_block"
         android:paddingVertical="@dimen/padding_vertical_block">
@@ -20,8 +20,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="101014"
-            android:textColor="@color/block_h"
-            android:textSize="@dimen/text_size_block_p"
+            android:textColor="@color/text_color_block_head"
+            android:textSize="@dimen/text_size_block_body"
             android:textStyle="bold" />
 
         <TextView
@@ -30,8 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Конвейер ленточный №4 59747 (отсев ≥12мм) EP 400, B-500, L=19,6 м"
-            android:textColor="@color/text_color_block_p"
-            android:textSize="@dimen/text_size_block_p" />
+            android:textColor="@color/text_color_block_body"
+            android:textSize="@dimen/text_size_block_body" />
 
         <LinearLayout
             android:layout_width="match_parent"

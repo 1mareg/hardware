@@ -2,13 +2,17 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.HardwareApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/button_background_color</item>
+        <item name="colorPrimary">@color/background_color_button</item>
     </style>
 
     <style name="Theme.HardwareApplication" parent="Base.Theme.HardwareApplication" />
 
     <style name="ButtonStyle">
         <item name="android:textSize">@dimen/text_size_button</item>
-        <item name="android:background">@color/button_background_color</item>
+        <item name="android:background">@color/background_color_button</item>
+    </style>
+    <style name="BlockHeaderStyle">
+        <item name="android:textSize">@dimen/text_size_block_head</item>
+        <item name="android:textColor">@color/text_color_block_head</item>
     </style>
 </resources>

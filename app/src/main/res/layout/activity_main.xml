@@ -18,7 +18,7 @@
             style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/layout_margin_vertical_button_main_activity"
+            android:layout_marginVertical="@dimen/margin_vertical_button_main_activity"
             android:text="@string/task1button" />
 
         <Button
@@ -26,7 +26,7 @@
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/layout_margin_vertical_button_main_activity"
+            android:layout_marginVertical="@dimen/margin_vertical_button_main_activity"
             android:text="@string/task2button" />
 
         <Button
@@ -34,7 +34,7 @@
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/layout_margin_vertical_button_main_activity"
+            android:layout_marginVertical="@dimen/margin_vertical_button_main_activity"
             android:text="@string/task3button" />
     </LinearLayout>
 

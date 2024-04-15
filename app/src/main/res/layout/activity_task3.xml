@@ -14,15 +14,14 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/BlockHeaderStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/layout_margin_bottom_block"
-            android:background="@color/block_background_color"
+            android:layout_marginBottom="@dimen/margin_bottom_block"
+            android:background="@color/background_color_block"
             android:paddingHorizontal="@dimen/padding_horizontal_block"
             android:paddingVertical="@dimen/padding_vertical_block"
-            android:text="@string/task3name"
-            android:textColor="@color/block_h"
-            android:textSize="@dimen/text_size_block_h"
+            android:text="@string/task3_name"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -39,7 +38,7 @@
 
                 <include
                     android:id="@+id/preloader"
-                    layout="@layout/preloader_layout" />
+                    layout="@layout/layout_preloader" />
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -51,7 +50,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <include layout="@layout/task3_table_row" />
+                        <include layout="@layout/table_row_task3" />
                     </LinearLayout>
                 </ScrollView>
 
@@ -67,7 +66,7 @@
                     android:id="@+id/linearLayout_stub_column"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/block_background_color"
+                    android:background="@color/background_color_block"
                     android:orientation="vertical" />
 
                 <include

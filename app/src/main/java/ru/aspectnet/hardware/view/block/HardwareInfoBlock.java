@@ -98,13 +98,13 @@ public class HardwareInfoBlock {
         fhib.editTextDormantStartDate.setText(h.getHardwareInfo().getDormantStartDate());
         fhib.editTextDormantEndDate.setText(h.getHardwareInfo().getDormantEndDate());
 
-        int spinnerLayout = h.getStatusCode().equals("withdrawn") ? R.layout.spinner_layout_disabled : R.layout.spinner_layout;
+        int spinnerLayout = h.getStatusCode().equals("withdrawn") ? R.layout.layout_spinner_disabled : R.layout.layout_spinner;
 
         ArrayList<String> departmentNames = new ArrayList<>();
         departmentNames.add("Служба младшего механика");
         departmentNames.add("Служба главного механика");
         ArrayAdapter<String> adapter = new ArrayAdapter(ctx, spinnerLayout, departmentNames);
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        adapter.setDropDownViewResource(R.layout.layout_spinner_dropdown);
         fhib.spinnerDepartmentName.setAdapter(adapter);
         fhib.spinnerDepartmentName.setSelection(departmentNames.indexOf(h.getHardwareInfo().getDepartmentName()));
 
@@ -112,7 +112,7 @@ public class HardwareInfoBlock {
         statusValues.add("В эксплуатации");
         statusValues.add("Выведено из эксплуатации");
         ArrayAdapter<String> adapter2 = new ArrayAdapter(ctx, spinnerLayout, statusValues);
-        adapter2.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        adapter2.setDropDownViewResource(R.layout.layout_spinner_dropdown);
         fhib.spinnerStatusValue.setAdapter(adapter2);
         fhib.spinnerStatusValue.setSelection(statusValues.indexOf(h.getHardwareInfo().getStatusValue()));
 

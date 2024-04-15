@@ -13,7 +13,7 @@
         android:layout_weight="3"
         android:gravity="right"
         android:text="101014"
-        android:textColor="@color/text_color_block_p"
+        android:textColor="@color/text_color_block_body"
         android:textSize="@dimen/text_size_table" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_marginRight="@dimen/margin_right_table_cell"
         android:layout_weight="20"
         android:text="Конвейер ленточный №4 59747 (отсев ≥12мм) EP 400, B-500, L=19,6 м"
-        android:textColor="@color/text_color_block_p"
+        android:textColor="@color/text_color_block_body"
         android:textSize="@dimen/text_size_table" />
 
     <TextView

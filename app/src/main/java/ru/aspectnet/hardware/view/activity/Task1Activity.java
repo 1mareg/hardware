@@ -43,7 +43,7 @@ public class Task1Activity extends AppCompatActivity {
 
         HardwareBlock hb = new HardwareBlock(binding.preloader.progressBar,
                 binding.tableHardware,
-                R.layout.task1_table_row,
+                R.layout.table_row_task1,
                 otrc,
                 this);
         // включаем возможность фильтрации
@@ -90,8 +90,8 @@ public class Task1Activity extends AppCompatActivity {
         statusValues.add("");
         statusValues.add("В эксплуатации");
         statusValues.add("Выведено из эксплуатации");
-        ArrayAdapter<String> adapterStatus = new ArrayAdapter(this, R.layout.spinner_layout, statusValues);
-        adapterStatus.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        ArrayAdapter<String> adapterStatus = new ArrayAdapter(this, R.layout.layout_spinner, statusValues);
+        adapterStatus.setDropDownViewResource(R.layout.layout_spinner_dropdown);
         binding.spinnerStatusValue.setAdapter(adapterStatus);
         binding.spinnerStatusValue.setSelection(statusValues.indexOf(""));
 
@@ -102,8 +102,8 @@ public class Task1Activity extends AppCompatActivity {
         criticalityValues.add("Средне критично");
         criticalityValues.add("Мало критично");
         criticalityValues.add("Не критично");
-        ArrayAdapter<String> adapterCriticality = new ArrayAdapter(this, R.layout.spinner_layout, criticalityValues);
-        adapterCriticality.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        ArrayAdapter<String> adapterCriticality = new ArrayAdapter(this, R.layout.layout_spinner, criticalityValues);
+        adapterCriticality.setDropDownViewResource(R.layout.layout_spinner_dropdown);
         binding.spinnerCriticality.setAdapter(adapterCriticality);
         binding.spinnerCriticality.setSelection(criticalityValues.indexOf(""));
 
