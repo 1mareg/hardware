@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="criticality_red">#FFFF6666</color>
-    <color name="criticality_yellow">#FFFFFF99</color>
-    <color name="criticality_green">#FF66FF66</color>
-    <color name="criticality_gray">#FFCCCCCC</color>
-    <color name="status_white">#FFFFFFFF</color>
-    <color name="status_gray">#FFCCCCCC</color>
-    <color name="status_green">#FF66FF66</color>
+    <color name="background_color_criticality_red">#CC9A000A</color>
+    <color name="background_color_criticality_yellow">#CCACA200</color>
+    <color name="background_color_criticality_green">#CC3A731A</color>
+    <color name="background_color_criticality_gray">#CC999999</color>
+    <color name="background_color_criticality_white">#CCFFFFFF</color>
+    <color name="background_color_status_white">#CCFFFFFF</color>
+    <color name="background_color_status_gray">#CC999999</color>
+    <color name="background_color_status_green">#CC3A731A</color>
+
+    <color name="background_color">#FFEEEEEE</color>
+    <color name="background_color_block">#FFFFFFFF</color>
+    <color name="background_color_block_highlight">#FF12A3F7</color>
+    <color name="text_color_block_head">#FF59BFF9</color>
+    <color name="text_color_block_body">#868686</color>
+    <color name="text_color_block_highlight">#FFFBFDFF</color>
+    <color name="text_color_edit_text">#757575</color>
+    <color name="text_color_edit_text_disabled">#BBBBBB</color>
+    <color name="text_color_for_colored_background">#FFFFFFFF</color>
+    <color name="border_color_edit_text">#FFCCCCCC</color>
+
+    <color name="background_color_button">#FF12A3F7</color>
+    <color name="text_color_button">#FFFBFDFF</color>
 </resources>

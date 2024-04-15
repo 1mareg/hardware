@@ -1,4 +1,4 @@
-package ru.aspectnet.hardware.api.dto;
+package ru.aspectnet.hardware.api.dto.task1;
 
 import java.util.ArrayList;
 

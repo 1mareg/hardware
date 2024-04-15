@@ -11,6 +11,7 @@ public class Hardware {
     private String status;
     private String criticalityCode;
     private String criticality;
+    private HardwareInfo hardwareInfo; // дополнительная информация
 
     public void setId(String id) {
         this.id = id;
@@ -62,5 +63,17 @@ public class Hardware {
 
     public void setCriticality(String criticality) {
         this.criticality = criticality;
+    }
+
+    public HardwareInfo getHardwareInfo() {
+        return hardwareInfo;
+    }
+
+    public void setHardwareInfo(HardwareInfo hardwareInfo) {
+        this.hardwareInfo = hardwareInfo;
+    }
+
+    public String getId() {
+        return id;
     }
 }

@@ -1,11 +1,9 @@
-package ru.aspectnet.hardware.api.dto;
+package ru.aspectnet.hardware.api.dto.task1;
 
 /*
     DTO - оборудование (1 элемент)
     Класс для десериализации JSON, полученного через API
  */
-//TODO Пока что все поля String, т.к. в документации API не указано иное и может придти что угодно
-// Можно переделать code в int и criticality_code в byte ориентируясь на имеющиеся данные
 public class HardwareDto {
     private String id;
     private String code;

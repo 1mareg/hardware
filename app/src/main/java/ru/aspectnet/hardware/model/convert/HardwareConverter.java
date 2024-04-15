@@ -1,6 +1,6 @@
 package ru.aspectnet.hardware.model.convert;
 
-import ru.aspectnet.hardware.api.dto.HardwareDto;
+import ru.aspectnet.hardware.api.dto.task1.HardwareDto;
 import ru.aspectnet.hardware.model.data.Hardware;
 
 /*
